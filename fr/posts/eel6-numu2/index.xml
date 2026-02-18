@@ -1,37 +1,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jonathan Saussereau – Projet Microcontroleur PIC</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/</link><description>Recent content in Projet Microcontroleur PIC on Jonathan Saussereau</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://jsaussereau.github.io/fr/posts/eel6-numu2/index.xml" rel="self" type="application/rss+xml"/><item><title>01. Introduction</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/1_intro/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/1_intro/</guid><description>
-&lt;h2&gt;Télécharger l&amp;rsquo;archive&lt;span class="hx:absolute hx:-mt-20" id="télécharger-larchive"&gt;&lt;/span&gt;
-&lt;a href="#t%c3%a9l%c3%a9charger-larchive" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Exécuter dans un terminal :&lt;/li&gt;
+&lt;p&gt;Ce projet vise à concevoir un système embarqué basé sur un microcontrôleur PIC16F877A. L&amp;rsquo;objectif est d&amp;rsquo;implémenter horloge une horloge configurable affichée sur un afficheur LCD. Le cahier des charges complet se trouve dans la &lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/"&gt;section suivante&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Compétences&lt;span class="hx:absolute hx:-mt-20" id="compétences"&gt;&lt;/span&gt;
+&lt;a href="#comp%c3%a9tences" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ce projet a pour objectif de développer les compétences suivantes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;la programmation par interruptions&lt;/li&gt;
+&lt;li&gt;la configuration de périphériques&lt;/li&gt;
+&lt;li&gt;la structuration d&amp;rsquo;un code&lt;/li&gt;
+&lt;li&gt;la mise en place de couches d&amp;rsquo;abstraction&lt;/li&gt;
+&lt;li&gt;la mise à profit d&amp;rsquo;une documentation technique&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd ~/Documents/
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/jsaussereau/EN111PR.git&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copier le code"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition caution"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Attention&lt;/span&gt;
 &lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;L’utilisation d’IA générative &lt;strong&gt;n’est pas autorisée&lt;/strong&gt; pour ce cours. Développer par vous‑même les compétences ci‑dessus est l&amp;rsquo;objectif de ce module. Cela vous permettra d’utiliser plus tard les outils d’IA avec beaucoup plus d’efficacité, de discernement et de recul. Même si la tentation est grande, &lt;strong&gt;merci de jouer le jeu&lt;/strong&gt; 🙂 !&lt;/p&gt;
 &lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;Le dossier &lt;code&gt;EN111PR&lt;/code&gt; devrait être apparu sur votre session dans le dossier &lt;code&gt;Documents&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;details&gt;
-&lt;summary&gt;Solution alternative&lt;/summary&gt;
-&lt;ul&gt;
-&lt;li&gt;Cliquer &lt;a href="https://github.com/jsaussereau/EN111PR/archive/refs/heads/main.zip" target="_blank" rel="noopener"&gt;ici&lt;/a&gt; pour télécharger l&amp;rsquo;archive.&lt;/li&gt;
-&lt;li&gt;Extraire l&amp;rsquo;archive sur la session dans &lt;strong&gt;Documents&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/details&gt;
-&lt;h2&gt;Organisation du répertoire&lt;span class="hx:absolute hx:-mt-20" id="organisation-du-répertoire"&gt;&lt;/span&gt;
-&lt;a href="#organisation-du-r%c3%a9pertoire" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Il y a 3 dossiers principaux :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;doc&lt;/strong&gt; : Contient les documents nécessaires pour le projet : sujet, datasheet du PIC16F877A, datasheets de la carte et de l&amp;rsquo;afficheur.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;src&lt;/strong&gt; : Contient les fichiers sources à utiliser (déjà importés dans le projet).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;work&lt;/strong&gt; : Le dossier dans lequel se situe le projet MPLABX, déjà configuré.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>02. Cahier des charges</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</guid><description>
+&lt;/div&gt;</description></item><item><title>02. Cahier des charges</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</guid><description>
 &lt;h2&gt;Objectifs principaux&lt;span class="hx:absolute hx:-mt-20" id="objectifs-principaux"&gt;&lt;/span&gt;
 &lt;a href="#objectifs-principaux" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -66,7 +52,7 @@ title="Copier le code"
 &lt;a href="#objectifs-secondaires" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h4&gt;(Au choix et si le temps le permet)&lt;span class="hx:absolute hx:-mt-20" id="au-choix-et-si-le-temps-le-permet"&gt;&lt;/span&gt;
 &lt;a href="#au-choix-et-si-le-temps-le-permet" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;Utilisation du potentiomètre pour régler les heures/minutes/secondes.&lt;/li&gt;
-&lt;li&gt;Ajout de charactères personnalisés sur l&amp;rsquo;afficheur.&lt;/li&gt;
+&lt;li&gt;Ajout de caractères personnalisés sur l&amp;rsquo;afficheur.&lt;/li&gt;
 &lt;li&gt;Récupération via le protocole I²C de la température du capteur TC74.&lt;/li&gt;
 &lt;li&gt;Ajout d&amp;rsquo;une alarme quand l&amp;rsquo;horloge atteint une heure configurée, avec une sonnerie ou une mélodie sur le buzzer P1.&lt;/li&gt;
 &lt;li&gt;Utilisation de l&amp;rsquo;écran comme un afficheur à décalage (comme dans les bus/trams).&lt;/li&gt;
@@ -79,8 +65,8 @@ title="Copier le code"
 &lt;li&gt;Groupe F : &lt;a href="mailto:Valery.Lebret@enseirb-matmeca.fr?subject=[EN111]%20NOM1%20NOM2"&gt;valery.lebret@enseirb-matmeca.fr&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Groupe G : &lt;a href="mailto:jsaussereau@bordeaux-inp.fr?subject=[EN111]%20NOM1%20NOM2"&gt;jsaussereau@bordeaux-inp.fr&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Ressouces à rendre&lt;span class="hx:absolute hx:-mt-20" id="ressouces-à-rendre"&gt;&lt;/span&gt;
-&lt;a href="#ressouces-%c3%a0-rendre" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2&gt;Ressources à rendre&lt;span class="hx:absolute hx:-mt-20" id="ressources-à-rendre"&gt;&lt;/span&gt;
+&lt;a href="#ressources-%c3%a0-rendre" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Le code source (tous les fichiers &lt;code&gt;.c&lt;/code&gt; et &lt;code&gt;.h&lt;/code&gt; dans le dossier &lt;code&gt;src&lt;/code&gt;) compressés dans une archive &lt;code&gt;.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Un rapport par binôme, d&amp;rsquo;environ 10 pages (hors annexe), au format &lt;code&gt;.pdf&lt;/code&gt;, contenant :
 &lt;ul&gt;
@@ -121,7 +107,7 @@ title="Copier le code"
 &lt;li&gt;Quelles sont les fonctionnalités recherchées qui justifient ces valeurs ?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Pour l&amp;rsquo;explication des fonctions, il ne s&amp;rsquo;agit pas de juste expliquer ce qu&amp;rsquo;elles font fonctionnemment (ça c&amp;rsquo;est le cahier des charges, que l&amp;rsquo;on a déjà). Il s&amp;rsquo;agit d&amp;rsquo;expliquer &lt;strong&gt;comment elles ont été implémentées&lt;/strong&gt; (opérations utilisées, logique, optimisations, &amp;hellip;) et pourquoi elles sont implémentées comme ça et pas autrement.&lt;/li&gt;
+&lt;li&gt;Pour l&amp;rsquo;explication des fonctions, il ne s&amp;rsquo;agit pas de juste expliquer ce qu&amp;rsquo;elles font fonctionnellement (ça c&amp;rsquo;est le cahier des charges, que l&amp;rsquo;on a déjà). Il s&amp;rsquo;agit d&amp;rsquo;expliquer &lt;strong&gt;comment elles ont été implémentées&lt;/strong&gt; (opérations utilisées, logique, optimisations, &amp;hellip;) et pourquoi elles sont implémentées comme ça et pas autrement.&lt;/li&gt;
 &lt;li&gt;De manière générale, dès que des choix on été fait, comme des choix de configuration de module, ou des choix d&amp;rsquo;implémentation, expliquer ces choix, &lt;strong&gt;même quand plusieurs configurations correspondaient aux exigences&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;La description de &lt;code&gt;lcd_write_instr_4bits&lt;/code&gt;, &lt;code&gt;lcd_write_instr_8bits&lt;/code&gt; et &lt;code&gt;lcd_init&lt;/code&gt; pourra être accompagnée d&amp;rsquo;organigrammes expliquant le déroulement de ces fonctions.&lt;/li&gt;
 &lt;li&gt;La description de la partie de configuration de l&amp;rsquo;horloge pourra être accompagnée d&amp;rsquo;un diagramme de la machine d&amp;rsquo;état.&lt;/li&gt;
@@ -130,9 +116,9 @@ title="Copier le code"
 &lt;li&gt;Bon courage ;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
-&lt;div class="admonition important"&gt;
-&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/&gt;&lt;/svg&gt;
-&lt;span&gt;Important&lt;/span&gt;
+&lt;div class="admonition caution"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Attention&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="admonition-content"&gt;
 &lt;ol&gt;
@@ -144,19 +130,66 @@ En matière de propriété intellectuelle, le plagiat constitue un délit.&lt;/l
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description></item><item><title>04. Get started</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/4_get_started/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/4_get_started/</guid><description>
-&lt;h2 id="aide_get_started"&gt; 1. Get started 🏁&lt;/h2&gt;
-&lt;p&gt;Un projet déjà configuré est disponible dans &lt;code&gt;work&lt;/code&gt;.&lt;/p&gt;
+&lt;!-- &lt;h2 id="aide_get_started"&gt; 1. Get started 🏁&lt;/h2&gt; --&gt;
+&lt;h2&gt;Téléchargemment du répertoire&lt;span class="hx:absolute hx:-mt-20" id="téléchargemment-du-répertoire"&gt;&lt;/span&gt;
+&lt;a href="#t%c3%a9l%c3%a9chargemment-du-r%c3%a9pertoire" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Exécuter dans un terminal :&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd ~/Documents/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/jsaussereau/EN111PR.git&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Le dossier &lt;code&gt;EN111PR&lt;/code&gt; devrait être apparu sur votre session dans le dossier &lt;code&gt;Documents&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;summary&gt;Solution alternative&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;Cliquer &lt;a href="https://github.com/jsaussereau/EN111PR/archive/refs/heads/main.zip" target="_blank" rel="noopener"&gt;ici&lt;/a&gt; pour télécharger l&amp;rsquo;archive.&lt;/li&gt;
+&lt;li&gt;Extraire l&amp;rsquo;archive sur la session dans &lt;strong&gt;Documents&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;h2&gt;Organisation du répertoire&lt;span class="hx:absolute hx:-mt-20" id="organisation-du-répertoire"&gt;&lt;/span&gt;
+&lt;a href="#organisation-du-r%c3%a9pertoire" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Il y a 3 dossiers principaux :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;doc&lt;/strong&gt; : Contient les documents nécessaires pour le projet : sujet, datasheet du PIC16F877A, datasheets de la carte et de l&amp;rsquo;afficheur.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;src&lt;/strong&gt; : Contient les fichiers sources à utiliser (déjà importés dans le projet).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;work&lt;/strong&gt; : Le dossier dans lequel se situe le projet MPLABX, déjà configuré.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Démarrage du projet&lt;span class="hx:absolute hx:-mt-20" id="démarrage-du-projet"&gt;&lt;/span&gt;
+&lt;a href="#d%c3%a9marrage-du-projet" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Un projet déjà configuré est disponible dans &lt;code&gt;work&lt;/code&gt;. Pour l&amp;rsquo;ouvrir :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Dans MPLABX, aller dans &lt;strong&gt;File &amp;gt; Open Project&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Sélectionner le projet &lt;strong&gt;PROJET.X&lt;/strong&gt; présent dans le dossier &lt;code&gt;~/Documents/EN111PR/work&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;Plusieurs fichiers sont déjà créés dans le dossier &lt;code&gt;src&lt;/code&gt; (voir &amp;ldquo;Header Files&amp;rdquo; et &amp;ldquo;Source Files&amp;rdquo; dans MPLABX) :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;main.c&lt;/code&gt; : Fichier principal. C&amp;rsquo;est ici que se trouve la fonction main et la fonction d&amp;rsquo;interruption.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;timer.c&lt;/code&gt; et &lt;code&gt;timer.h&lt;/code&gt; : Fichiers où développer &lt;a href="#aide_led"&gt;la configuration du timer&lt;/a&gt;, &lt;a href="#aide_horloge"&gt;la mise en forme&lt;/a&gt; et &lt;a href="#aide_conf_horloge"&gt;la configuration&lt;/a&gt; de l&amp;rsquo;horloge.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;lib_LCD.c&lt;/code&gt; et &lt;code&gt;lib_LCD.h&lt;/code&gt; : Fichiers où développer &lt;a href="#aide_lib_lcd"&gt;la bibliothèque LCD&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;À chaque étape, pensez à faire valider votre travail avant de passer aux étapes suivantes.&lt;/p&gt;</description></item><item><title>05. Clignotement de la LED</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</guid><description>
-&lt;h2 id="aide_led"&gt; 2. Clignotement de la LED à la fréquence 0.5 Hz &lt;/h2&gt;
-&lt;h3&gt;2.1 Choix de la stratégie&lt;span class="hx:absolute hx:-mt-20" id="21-choix-de-la-stratégie"&gt;&lt;/span&gt;
-&lt;a href="#21-choix-de-la-strat%c3%a9gie" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Nous avons ici une exigence de précision, alors comme en TP, c&amp;rsquo;est la stratégie par interruption qui s&amp;rsquo;impose face à l&amp;rsquo;attente active.&lt;/p&gt;
-&lt;p&gt;Pour génerer les interruptions qui ferront clignoter la LED, nous avons le choix entre les 3 timers du microcontrôleur.&lt;/p&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition warning"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Avertissement&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Pensez à &lt;strong&gt;faire valider votre travail à chaque partie&lt;/strong&gt;, avant de passer aux étapes suivantes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>05. Clignotement de la LED</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</guid><description>
+&lt;!-- &lt;h2 id="aide_led"&gt; 2. Clignotement de la LED à la fréquence 0.5 Hz &lt;/h2&gt; --&gt;
+&lt;p&gt;Le tout premier objectif est de faire clignoter une des LED à la fréquence 0.5 Hz (1 changement d’état toutes les secondes) à partir d’interruptions sur le Timer1.&lt;/p&gt;
+&lt;h3&gt;Choix de la stratégie&lt;span class="hx:absolute hx:-mt-20" id="choix-de-la-stratégie"&gt;&lt;/span&gt;
+&lt;a href="#choix-de-la-strat%c3%a9gie" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Nous avons ici une exigence de précision, alors comme en TP, c&amp;rsquo;est la stratégie par interruption qui s&amp;rsquo;impose face à l&amp;rsquo;attente active.&lt;/p&gt;
+&lt;p&gt;Pour générer les interruptions qui ferront clignoter la LED, nous avons le choix entre les 3 timers du microcontrôleur.&lt;/p&gt;
 &lt;p&gt;La datasheet &lt;em&gt;DS_PIC16F877A&lt;/em&gt; nous apprend qu&amp;rsquo;il est possible de configurer le Timer 1 sur une horloge externe.
 Le schéma à la page 19 de la datasheet de la carte PICDEM2+ &lt;em&gt;DS_PICDEM_2_Plus_Users_Guide&lt;/em&gt; montre qu&amp;rsquo;il y a un quartz (Y3) de 32.768 kHz ($2^{15}$ Hz) relié aux broches OSO (RC0) et OSI (RC1) du PIC.&lt;/p&gt;
 &lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
@@ -168,12 +201,12 @@ Le schéma à la page 19 de la datasheet de la carte PICDEM2+ &lt;em&gt;DS_PICDE
 &lt;p&gt;L&amp;rsquo;incrémentation d&amp;rsquo;un compteur 16 bits comme le Timer 1 à une fréquence de $2^{15}$ Hz permettrait un débordement de celui-ci toutes les 2 secondes ($2^{16} / 2^{15}$) très précisément.
 Le Timer 1 est donc un bon candidat pour cette application.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3&gt;2.2 Développement d&amp;rsquo;une bibliothèque pour le Timer 1&lt;span class="hx:absolute hx:-mt-20" id="22-développement-dune-bibliothèque-pour-le-timer-1"&gt;&lt;/span&gt;
-&lt;a href="#22-d%c3%a9veloppement-dune-biblioth%c3%a8que-pour-le-timer-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;La section &amp;ldquo;Timer1&amp;rdquo; de la datasheet du microcontrôleur &lt;em&gt;DS_PIC16F877A&lt;/em&gt; détaille le fonctionnement de ce timer, avec notamment un schéma de son fonctionnement et un tableau regroupant les registres à utiliser pour le configurer.&lt;/p&gt;
+&lt;/div&gt;&lt;h3&gt;Développement d&amp;rsquo;une bibliothèque pour le Timer 1&lt;span class="hx:absolute hx:-mt-20" id="développement-dune-bibliothèque-pour-le-timer-1"&gt;&lt;/span&gt;
+&lt;a href="#d%c3%a9veloppement-dune-biblioth%c3%a8que-pour-le-timer-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;La section &amp;ldquo;Timer1&amp;rdquo; de la datasheet du microcontrôleur &lt;em&gt;DS_PIC16F877A&lt;/em&gt; détaille le fonctionnement de ce timer, avec notamment un schéma de son fonctionnement et un tableau regroupant les registres à utiliser pour le configurer.&lt;/p&gt;
 &lt;p&gt;On cherche tout d&amp;rsquo;abord à définir à l&amp;rsquo;aide de &lt;code&gt;#define&lt;/code&gt; dans &lt;code&gt;timer.h&lt;/code&gt; (Header Files) les différentes valeurs des champs associés au Timer 1. Cela permettra d&amp;rsquo;avoir juste à choisir la bonne constante lors de la configuration du timer.&lt;/p&gt;
 &lt;p&gt;En plus de faciliter l&amp;rsquo;étape de configuration, l&amp;rsquo;objectif est que par la suite chaque ligne de code soit compréhensible sans avoir à regarder la datasheet.&lt;/p&gt;
-&lt;h3&gt;Exemple de ce qu&amp;rsquo;il &lt;strong&gt;ne faut PAS&lt;/strong&gt; faire :&lt;span class="hx:absolute hx:-mt-20" id="exemple-de-ce-quil-ne-faut-pas-faire-"&gt;&lt;/span&gt;
-&lt;a href="#exemple-de-ce-quil-ne-faut-pas-faire-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;timer.c&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;Exemple de ce qu&amp;rsquo;il &lt;strong&gt;ne faut PAS&lt;/strong&gt; faire :&lt;span class="hx:absolute hx:-mt-20" id="exemple-de-ce-quil-ne-faut-pas-faire-"&gt;&lt;/span&gt;
+&lt;a href="#exemple-de-ce-quil-ne-faut-pas-faire-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;code&gt;timer.c&lt;/code&gt;&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;timer_init&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; T1CON &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0x4c&lt;/span&gt;;
@@ -196,8 +229,8 @@ Sans la datasheet sous les yeux et un effort de compréhension (avec risque d&am
 &lt;div class="admonition-content"&gt;
 &lt;p&gt;Dans le milieu professionnel, les codes sont écrits par plusieurs personnes et doivent pouvoir être repris par n&amp;rsquo;importe qui dans le futur. Il donc est impensable de proposer un tel code en entreprise.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3&gt;Exemple de notation bien plus lisible :&lt;span class="hx:absolute hx:-mt-20" id="exemple-de-notation-bien-plus-lisible-"&gt;&lt;/span&gt;
-&lt;a href="#exemple-de-notation-bien-plus-lisible-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;timer.h&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;h4&gt;Exemple de notation bien plus lisible :&lt;span class="hx:absolute hx:-mt-20" id="exemple-de-notation-bien-plus-lisible-"&gt;&lt;/span&gt;
+&lt;a href="#exemple-de-notation-bien-plus-lisible-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;code&gt;timer.h&lt;/code&gt;&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//T1CONbits.T1CKPS :
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define T1_PRESCALER_DIV8 0b11
@@ -244,9 +277,9 @@ title="Copier le code"
 &lt;p&gt;Cette notation demande un effort supplémentaire lors de l&amp;rsquo;écriture du programme mais rendra le débuggage et la modification tellement plus facile. Ici, même sans la datasheet, on comprend ce qu&amp;rsquo;il se passe.
 De plus, les commentaires sont un bon moyen de se rappeler pourquoi on a fait tel ou tel choix.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3&gt;2.3 Configuration du timer&lt;span class="hx:absolute hx:-mt-20" id="23-configuration-du-timer"&gt;&lt;/span&gt;
-&lt;a href="#23-configuration-du-timer" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Il ne reste plus qu&amp;rsquo;à utiliser ces définitions pour l&amp;rsquo;initialisation du timer dans la fonction &lt;code&gt;timer_init&lt;/code&gt; (&lt;code&gt;timer.c&lt;/code&gt;).&lt;/p&gt;
-&lt;p&gt;L&amp;rsquo;objectif étant dans un premier temps de le configurer pour qu&amp;rsquo;il déclenche une iterruption toutes les deux secondes.&lt;/p&gt;
+&lt;/div&gt;&lt;h3&gt;Configuration du timer&lt;span class="hx:absolute hx:-mt-20" id="configuration-du-timer"&gt;&lt;/span&gt;
+&lt;a href="#configuration-du-timer" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Il ne reste plus qu&amp;rsquo;à utiliser ces définitions pour l&amp;rsquo;initialisation du timer dans la fonction &lt;code&gt;timer_init&lt;/code&gt; (&lt;code&gt;timer.c&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;objectif étant dans un premier temps de le configurer pour qu&amp;rsquo;il déclenche une interruption toutes les deux secondes.&lt;/p&gt;
 &lt;p&gt;La section &lt;code&gt;TIMER1 MODULE&lt;/code&gt; de la datasheet &lt;em&gt;DS_PIC16F877A&lt;/em&gt; décrit le fonctionnement du Timer1. Le schéma page 58 aide à comprendre son fonctionnement et le rôle de chaque champ de configuration.&lt;/p&gt;
 &lt;div class="admonition tip"&gt;
 &lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
@@ -271,8 +304,8 @@ De plus, les commentaires sont un bon moyen de se rappeler pourquoi on a fait te
 &lt;div class="admonition-content"&gt;
 &lt;p&gt;Une fois les interruptions configurées, on peut déjà essayer sur la carte pour voir si on a bien la LED qui change d&amp;rsquo;état toutes les 2 secondes.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3&gt;2.4 Configuration du module CCP&lt;span class="hx:absolute hx:-mt-20" id="24-configuration-du-module-ccp"&gt;&lt;/span&gt;
-&lt;a href="#24-configuration-du-module-ccp" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Pour avoir un débordement toutes les secondes (et plus toutes les 2 secondes), on peut utiliser un module de comparaison CCP.&lt;br&gt;
+&lt;/div&gt;&lt;h3&gt;Configuration du module CCP&lt;span class="hx:absolute hx:-mt-20" id="configuration-du-module-ccp"&gt;&lt;/span&gt;
+&lt;a href="#configuration-du-module-ccp" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Pour avoir un débordement toutes les secondes (et plus toutes les 2 secondes), on peut utiliser un module de comparaison CCP.&lt;br&gt;
 Le but est ici d&amp;rsquo;utiliser ce module pour générer une interruption à chaque fois que la valeur du compteur du Timer1 est à mi-parcours (entre deux interruptions de débordement). Il faut donc également activer les interruptions sur le module CCP.&lt;/p&gt;
 &lt;p&gt;Les modules CCP peuvent être utilisés dans différentes configurations, il faut choisir la plus adaptée au besoin.&lt;br&gt;
 Il faut aussi penser à bien mettre une valeur à comparer.&lt;/p&gt;
@@ -285,7 +318,8 @@ Il faut aussi penser à bien mettre une valeur à comparer.&lt;/p&gt;
 &lt;p&gt;Le tableau à la page 68 de la datasheet &lt;em&gt;DS_PIC16F877A&lt;/em&gt; met en évidence tous les champs liés au module CCP. Pour être sûr de l&amp;rsquo;avoir bien configuré, il faut être sûr de comprendre quel est le rôle de chacun de ces champs et être sûr d&amp;rsquo;avoir assigné la bonne valeur aux champs qui en ont besoin.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description></item><item><title>06. LCD Etape #1</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/</guid><description>
-&lt;h2 id="aide_lib_lcd"&gt; 3. Développement de la bibliothèque pour l'afficheur LCD &lt;/h2&gt;
+&lt;p&gt;L&amp;rsquo;objectif est désormais de développer une bibliothèque pour l&amp;rsquo;afficheur LCD. Pour cela nous allons procéder par étape, en ajoutant des niveaux d&amp;rsquo;abstraction au fur et à mesure.&lt;/p&gt;
+&lt;!-- &lt;h2 id="aide_lib_lcd"&gt; 3. Développement de la bibliothèque pour l'afficheur LCD &lt;/h2&gt; --&gt;
 &lt;h3&gt;Documentation&lt;span class="hx:absolute hx:-mt-20" id="documentation"&gt;&lt;/span&gt;
 &lt;a href="#documentation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Pour développer la bibliothèque LCD, 2 documents seront utiles :&lt;/p&gt;
 &lt;ul&gt;
@@ -615,18 +649,20 @@ Ainsi, si après avoir téléversé le programme sur la carte, le curseur cligno
 &lt;li&gt;&lt;code&gt;lcd_puts&lt;/code&gt; pour écrire une chaîne de caractères&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;lcd_pos&lt;/code&gt; pour le positionnement du curseur en un point de l&amp;rsquo;écran&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>11. Affichage de l'horloge</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/11_horloge/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/11_horloge/</guid><description>
-&lt;h2 id="aide_horloge"&gt; 4. Affichage de l'horloge sur l'écran LCD &lt;/h2&gt;
-&lt;p&gt;Maintenant que l&amp;rsquo;on peut afficher ce que l&amp;rsquo;on veut sur écran, on cherche à afficher l&amp;rsquo;horloge.
-On utilise donc la fonction d&amp;rsquo;interruption (déclenchée toutes les secondes grâce à la configuration du timer) pour générer les heures, minutes et secondes qui seront affichés sur l&amp;rsquo;écran.&lt;/p&gt;
+&lt;!-- &lt;h2 id="aide_horloge"&gt; 4. Affichage de l'horloge sur l'écran LCD &lt;/h2&gt; --&gt;
+&lt;p&gt;Maintenant que l&amp;rsquo;on peut afficher ce que l&amp;rsquo;on veut sur écran, l&amp;rsquo;objectif est d&amp;rsquo;y afficher l&amp;rsquo;horloge.&lt;/p&gt;
+&lt;h2&gt;Génération des heures, minutes et secondes&lt;span class="hx:absolute hx:-mt-20" id="génération-des-heures-minutes-et-secondes"&gt;&lt;/span&gt;
+&lt;a href="#g%c3%a9n%c3%a9ration-des-heures-minutes-et-secondes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Dans les parties précédentes, nous avons configuré un timer déclenche une fonction d&amp;rsquo;interruption toutes les secondes, précisément. Il s&amp;rsquo;agit donc d&amp;rsquo;une bonne base pour générer les heures, minutes et secondes qui seront affichés sur l&amp;rsquo;écran.&lt;/p&gt;
 &lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
 &lt;div class="admonition tip"&gt;
 &lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
 &lt;span&gt;Conseil&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="admonition-content"&gt;
-&lt;p&gt;Comme toujours en programmation microcontroleur, bien réfléchir à ce qui doit être fait dans la fonction d&amp;rsquo;interruption et ce qui doit être fait ailleurs&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Comme toujours en programmation microcontrôleur, bien réfléchir à ce qui doit être fait dans la fonction d&amp;rsquo;interruption et ce qui doit être fait ailleurs&amp;hellip;&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Pour formatter l&amp;rsquo;horloge dans une chaîne de caractère, le plus simple est certainement d&amp;rsquo;utiliser la fonction &lt;code&gt;sprintf&lt;/code&gt; de la bibliothèque &lt;code&gt;stdio&lt;/code&gt;.
+&lt;/div&gt;&lt;h2&gt;Mise en forme&lt;span class="hx:absolute hx:-mt-20" id="mise-en-forme"&gt;&lt;/span&gt;
+&lt;a href="#mise-en-forme" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Pour formatter l&amp;rsquo;horloge dans une chaîne de caractère, le plus simple est certainement d&amp;rsquo;utiliser la fonction &lt;code&gt;sprintf&lt;/code&gt; de la bibliothèque &lt;code&gt;stdio&lt;/code&gt;.
 Pour obtenir la documentation de &lt;code&gt;sprintf&lt;/code&gt;, il suffit de taper dans un terminal :&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;man sprintf&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
@@ -654,7 +690,7 @@ title="Copier le code"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Résultat : &lt;code&gt;12:1:8&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Comme &lt;code&gt;printf&lt;/code&gt;, on peut forcer une mise en forme sur un nombre précis de charactères :&lt;/p&gt;
+&lt;p&gt;Comme &lt;code&gt;printf&lt;/code&gt;, on peut forcer une mise en forme sur un nombre précis de caractères :&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;sprintf&lt;/span&gt;(formatted_time, &lt;span style="color:#e6db74"&gt;&amp;#34;%2d:%2d:%2d&amp;#34;&lt;/span&gt;, t.hours, t.minutes, t.seconds);&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
@@ -680,9 +716,9 @@ title="Copier le code"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Résultat : &lt;code&gt;12:01:08&lt;/code&gt;&lt;/p&gt;</description></item><item><title>12. Configuration de l'horloge</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/12_configuration/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/12_configuration/</guid><description>
-&lt;h2 id="aide_conf_horloge"&gt; 5. Développement de la fonctionnalité de configuration de l'horloge &lt;/h2&gt;
-&lt;h3&gt;Rappel du cahier des charges&lt;span class="hx:absolute hx:-mt-20" id="rappel-du-cahier-des-charges"&gt;&lt;/span&gt;
-&lt;a href="#rappel-du-cahier-des-charges" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;L&amp;rsquo;objectif de cette partie est de pouvoir configurer l&amp;rsquo;horloge à l&amp;rsquo;aide des boutons poussoir S2 et S3 :&lt;/p&gt;
+&lt;!-- &lt;h2 id="aide_conf_horloge"&gt; 5. Développement de la fonctionnalité de configuration de l'horloge &lt;/h2&gt; --&gt;
+&lt;!-- ### Rappel du cahier des charges --&gt;
+&lt;p&gt;L&amp;rsquo;objectif de cette partie est de pouvoir configurer l&amp;rsquo;horloge à l&amp;rsquo;aide des boutons poussoir S2 et S3 :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Un appui prolongé d&amp;rsquo;au moins 2 s sur S2 fera clignoter les heures, celles-ci s&amp;rsquo;incrémenteront à chaque appui sur S3, et automatiquement (f ≈ 5 Hz) en cas d&amp;rsquo;appui maintenu au-delà de 2 s.&lt;/li&gt;
 &lt;li&gt;Un nouvel appui sur S2 permettra un réglage des minutes selon la même procédure.&lt;/li&gt;
@@ -705,8 +741,8 @@ title="Copier le code"
 &lt;div class="admonition-content"&gt;
 &lt;p&gt;Les interrupteurs physiques ont une période de rebonds qui peut provoquer des faux déclenchements. Pour éviter des changements d&amp;rsquo;états non désirés, un filtre anti-rebonds peut être implémenté à l&amp;rsquo;aide de délais de temporisation.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3&gt;Machine d&amp;rsquo;état en C&lt;span class="hx:absolute hx:-mt-20" id="machine-détat-en-c"&gt;&lt;/span&gt;
-&lt;a href="#machine-d%c3%a9tat-en-c" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Le principe est le même que dans un langage de description matérielle comme le VHDL : représenter le comportement d&amp;rsquo;un système en réponse à des événements.&lt;/p&gt;
+&lt;/div&gt;&lt;h3&gt;Exemple d&amp;rsquo;implémentation de machine d&amp;rsquo;état en C&lt;span class="hx:absolute hx:-mt-20" id="exemple-dimplémentation-de-machine-détat-en-c"&gt;&lt;/span&gt;
+&lt;a href="#exemple-dimpl%c3%a9mentation-de-machine-d%c3%a9tat-en-c" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Le principe est le même que dans un langage de description matérielle comme le VHDL : représenter le comportement d&amp;rsquo;un système en réponse à des événements.&lt;/p&gt;
 &lt;p&gt;Voici un exemple de machine d&amp;rsquo;état implémentant le système de contrôle d&amp;rsquo;une porte automatique.&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// Déclaration de l&amp;#39;enumération représentant les états
