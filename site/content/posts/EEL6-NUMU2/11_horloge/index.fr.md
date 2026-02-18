@@ -17,13 +17,18 @@ draft: false
 hidden: false
 ---
 
-<h2 id="aide_horloge"> 4. Affichage de l'horloge sur l'écran LCD </h2>
+<!-- <h2 id="aide_horloge"> 4. Affichage de l'horloge sur l'écran LCD </h2> -->
 
-Maintenant que l'on peut afficher ce que l'on veut sur écran, on cherche à afficher l'horloge.
-On utilise donc la fonction d'interruption (déclenchée toutes les secondes grâce à la configuration du timer) pour générer les heures, minutes et secondes qui seront affichés sur l'écran.
+Maintenant que l'on peut afficher ce que l'on veut sur écran, l'objectif est d'y afficher l'horloge.
+
+## Génération des heures, minutes et secondes
+
+Dans les parties précédentes, nous avons configuré un timer déclenche une fonction d'interruption toutes les secondes, précisément. Il s'agit donc d'une bonne base pour générer les heures, minutes et secondes qui seront affichés sur l'écran.
 
 > [!TIP]
-> Comme toujours en programmation microcontroleur, bien réfléchir à ce qui doit être fait dans la fonction d'interruption et ce qui doit être fait ailleurs...
+> Comme toujours en programmation microcontrôleur, bien réfléchir à ce qui doit être fait dans la fonction d'interruption et ce qui doit être fait ailleurs...
+
+## Mise en forme
 
 Pour formatter l'horloge dans une chaîne de caractère, le plus simple est certainement d'utiliser la fonction `sprintf` de la bibliothèque `stdio`.
 Pour obtenir la documentation de `sprintf`, il suffit de taper dans un terminal :
@@ -39,7 +44,7 @@ sprintf(formatted_time, "%d:%d:%d", t.hours, t.minutes, t.seconds);
 ```
 Résultat : `12:1:8`
 
-Comme `printf`, on peut forcer une mise en forme sur un nombre précis de charactères :
+Comme `printf`, on peut forcer une mise en forme sur un nombre précis de caractères :
 ```c
 sprintf(formatted_time, "%2d:%2d:%2d", t.hours, t.minutes, t.seconds);
 ```

@@ -17,9 +17,9 @@ draft: false
 hidden: false
 ---
 
-<h2 id="aide_conf_horloge"> 5. Développement de la fonctionnalité de configuration de l'horloge </h2>
+<!-- <h2 id="aide_conf_horloge"> 5. Développement de la fonctionnalité de configuration de l'horloge </h2> -->
 
-### Rappel du cahier des charges
+<!-- ### Rappel du cahier des charges -->
 
 L'objectif de cette partie est de pouvoir configurer l'horloge à l'aide des boutons poussoir S2 et S3 :
 - Un appui prolongé d'au moins 2 s sur S2 fera clignoter les heures, celles-ci s'incrémenteront à chaque appui sur S3, et automatiquement (f ≈ 5 Hz) en cas d'appui maintenu au-delà de 2 s.
@@ -33,7 +33,7 @@ L'objectif de cette partie est de pouvoir configurer l'horloge à l'aide des bou
 > [!TIP]
 > Les interrupteurs physiques ont une période de rebonds qui peut provoquer des faux déclenchements. Pour éviter des changements d'états non désirés, un filtre anti-rebonds peut être implémenté à l'aide de délais de temporisation.
 
-### Machine d'état en C
+### Exemple d'implémentation de machine d'état en C
 
 Le principe est le même que dans un langage de description matérielle comme le VHDL : représenter le comportement d'un système en réponse à des événements.
 

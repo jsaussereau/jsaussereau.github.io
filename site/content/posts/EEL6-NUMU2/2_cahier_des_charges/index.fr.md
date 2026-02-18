@@ -1,7 +1,7 @@
 ---
 title: "02. Cahier des charges"
 date: "2026-02-11T00:00:00+02:00"
-description: ""
+summary: "Liste des objectifs principaux (obligatoires) et secondaires (bonus) du projet."
 menu:
   sidebar:
     name: "Cahier des charges"
@@ -38,7 +38,7 @@ hidden: false
 ## Objectifs Secondaires
 #### (Au choix et si le temps le permet)
 - Utilisation du potentiomètre pour régler les heures/minutes/secondes.
-- Ajout de charactères personnalisés sur l'afficheur.
+- Ajout de caractères personnalisés sur l'afficheur.
 - Récupération via le protocole I²C de la température du capteur TC74.
 - Ajout d'une alarme quand l'horloge atteint une heure configurée, avec une sonnerie ou une mélodie sur le buzzer P1.
 - Utilisation de l'écran comme un afficheur à décalage (comme dans les bus/trams).

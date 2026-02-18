@@ -1,7 +1,7 @@
 ---
 title: "03. Evaluation"
 date: "2026-02-11T00:00:00+02:00"
-description: ""
+summary: "Modalités d'évaluation et de remise des travaux."
 menu:
   sidebar:
     name: "Evaluation"
@@ -27,7 +27,7 @@ Le rendu se fait par mail avec comme objet `[EN111] NOM1 NOM2`, avant le 25 mai 
 - Groupe G : [jsaussereau@bordeaux-inp.fr](mailto:jsaussereau@bordeaux-inp.fr?subject=[EN111]%20NOM1%20NOM2)
 
 
-## Ressouces à rendre
+## Ressources à rendre
 
 - Le code source (tous les fichiers `.c` et `.h` dans le dossier `src`) compressés dans une archive `.zip`
 - Un rapport par binôme, d'environ 10 pages (hors annexe), au format `.pdf`, contenant :
@@ -54,7 +54,7 @@ Le rendu se fait par mail avec comme objet `[EN111] NOM1 NOM2`, avant le 25 mai 
 	- Quelles sont les valeurs qui ont été mises dans ces registres ?
 	- Quelles actions ont ces valeurs techniquement ? 
 	- Quelles sont les fonctionnalités recherchées qui justifient ces valeurs ?
-- Pour l'explication des fonctions, il ne s'agit pas de juste expliquer ce qu'elles font fonctionnemment (ça c'est le cahier des charges, que l'on a déjà). Il s'agit d'expliquer **comment elles ont été implémentées** (opérations utilisées, logique, optimisations, ...) et pourquoi elles sont implémentées comme ça et pas autrement.
+- Pour l'explication des fonctions, il ne s'agit pas de juste expliquer ce qu'elles font fonctionnellement (ça c'est le cahier des charges, que l'on a déjà). Il s'agit d'expliquer **comment elles ont été implémentées** (opérations utilisées, logique, optimisations, ...) et pourquoi elles sont implémentées comme ça et pas autrement.
 - De manière générale, dès que des choix on été fait, comme des choix de configuration de module, ou des choix d'implémentation, expliquer ces choix, **même quand plusieurs configurations correspondaient aux exigences**. 
 - La description de `lcd_write_instr_4bits`, `lcd_write_instr_8bits` et `lcd_init` pourra être accompagnée d'organigrammes expliquant le déroulement de ces fonctions.
 - La description de la partie de configuration de l'horloge pourra être accompagnée d'un diagramme de la machine d'état.
@@ -62,7 +62,7 @@ Le rendu se fait par mail avec comme objet `[EN111] NOM1 NOM2`, avant le 25 mai 
 - Même si vous n'avez pas réalisé une partie, vous pouvez l'indiquer et expliquer comment vous auriez fait.
 - Bon courage ;)
 
-> [!IMPORTANT]  
+> [!CAUTION]  
 > 1. Le code source doit compiler !
 > 2. La note qui vous sera attribuée sur ce module tient également compte du travail observé durant les séances de TP + projet et des éventuelles absences non justifiées.
 > 3. Le [plagiat](https://nuxeo.ipb.fr/nuxeo/nxfile/default/fa82b9dd-f22c-4d41-8ace-5a5e7fa7e60d/blobholder:0/Charte-anti-plagiat.pdf) constitue une fraude dont les conséquences peuvent être graves :

@@ -17,8 +17,8 @@ draft: false
 hidden: false
 ---
 
-
-<h2 id="aide_lib_lcd"> 3. Développement de la bibliothèque pour l'afficheur LCD </h2>
+L'objectif est désormais de développer une bibliothèque pour l'afficheur LCD. Pour cela nous allons procéder par étape, en ajoutant des niveaux d'abstraction au fur et à mesure.
+<!-- <h2 id="aide_lib_lcd"> 3. Développement de la bibliothèque pour l'afficheur LCD </h2> -->
 
 ### Documentation
 Pour développer la bibliothèque LCD, 2 documents seront utiles :
