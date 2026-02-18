@@ -1,0 +1,806 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jonathan Saussereau – Cours</title><link>https://jsaussereau.github.io/fr/posts/</link><description>Recent content in Cours on Jonathan Saussereau</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://jsaussereau.github.io/fr/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>01. Introduction</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/1_intro/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/1_intro/</guid><description>
+&lt;h2&gt;Télécharger l&amp;rsquo;archive&lt;span class="hx:absolute hx:-mt-20" id="télécharger-larchive"&gt;&lt;/span&gt;
+&lt;a href="#t%c3%a9l%c3%a9charger-larchive" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Exécuter dans un terminal :&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd ~/Documents/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/jsaussereau/EN111PR.git&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Le dossier &lt;code&gt;EN111PR&lt;/code&gt; devrait être apparu sur votre session dans le dossier &lt;code&gt;Documents&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;summary&gt;Solution alternative&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;Cliquer &lt;a href="https://github.com/jsaussereau/EN111PR/archive/refs/heads/main.zip" target="_blank" rel="noopener"&gt;ici&lt;/a&gt; pour télécharger l&amp;rsquo;archive.&lt;/li&gt;
+&lt;li&gt;Extraire l&amp;rsquo;archive sur la session dans &lt;strong&gt;Documents&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;h2&gt;Organisation du répertoire&lt;span class="hx:absolute hx:-mt-20" id="organisation-du-répertoire"&gt;&lt;/span&gt;
+&lt;a href="#organisation-du-r%c3%a9pertoire" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Il y a 3 dossiers principaux :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;doc&lt;/strong&gt; : Contient les documents nécessaires pour le projet : sujet, datasheet du PIC16F877A, datasheets de la carte et de l&amp;rsquo;afficheur.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;src&lt;/strong&gt; : Contient les fichiers sources à utiliser (déjà importés dans le projet).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;work&lt;/strong&gt; : Le dossier dans lequel se situe le projet MPLABX, déjà configuré.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>02. Cahier des charges</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</guid><description>
+&lt;h2&gt;Objectifs principaux&lt;span class="hx:absolute hx:-mt-20" id="objectifs-principaux"&gt;&lt;/span&gt;
+&lt;a href="#objectifs-principaux" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Faire clignoter une des LED à la fréquence 0.5 Hz (1 changement d&amp;rsquo;état toutes les secondes) à partir d&amp;rsquo;&lt;strong&gt;interruptions&lt;/strong&gt; sur le Timer1. Cette fonctionnalité doit être maintenue même après le développement des étapes suivantes. (&lt;a href="#aide_led"&gt;Aide&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Développer une bibliothèque pour l&amp;rsquo;afficheur LCD (&lt;code&gt;lib_LCD.h&lt;/code&gt; et &lt;code&gt;lib_LCD.c&lt;/code&gt;) proposant à l&amp;rsquo;utilisateur au minimum les fonctionnalités suivantes (&lt;a href="#aide_lib_lcd"&gt;Aide&lt;/a&gt;) :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lcd_init&lt;/code&gt; : Initialisation générale de l&amp;rsquo;afficheur en mode 4 bits&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_putch&lt;/code&gt; : Ecriture d&amp;rsquo;un caractère sur l&amp;rsquo;afficheur&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_puts&lt;/code&gt; : Ecriture d&amp;rsquo;une chaîne de caractères sur l&amp;rsquo;afficheur&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_pos&lt;/code&gt; : Positionnement du curseur en (x,y) - origine en (1,1)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_home&lt;/code&gt; : Cursor home : positionnement du curseur (1,1)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_clear&lt;/code&gt; : Effacement de l&amp;rsquo;écran et cursor home&lt;br&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Affichage sur l&amp;rsquo;écran LCD d&amp;rsquo;une horloge au format &lt;code&gt;HH:MM:SS&lt;/code&gt; qui s&amp;rsquo;incrémente à chaque seconde (via le Timer1). (&lt;a href="#aide_horloge"&gt;Aide&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pouvoir configurer l&amp;rsquo;horloge à l&amp;rsquo;aide des boutons poussoir S2 et S3 (&lt;a href="#aide_conf_horloge"&gt;Aide&lt;/a&gt;) :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Un appui prolongé d&amp;rsquo;au moins 2 s sur S2 fera clignoter les heures, celles-ci s&amp;rsquo;incrémenteront à chaque appui sur S3, ou automatiquement (f ≈ 5 Hz) en cas d&amp;rsquo;appui maintenu au-delà de 2 s.&lt;/li&gt;
+&lt;li&gt;Un nouvel appui sur S2 permettra un réglage des minutes selon la même procédure.&lt;/li&gt;
+&lt;li&gt;Éventuellement, un nouvel appui sur S2 permettra un réglage des secondes selon la même procédure.&lt;/li&gt;
+&lt;li&gt;Un dernier appui sur S2 fera quitter le mode &amp;ldquo;réglage&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Objectifs Secondaires&lt;span class="hx:absolute hx:-mt-20" id="objectifs-secondaires"&gt;&lt;/span&gt;
+&lt;a href="#objectifs-secondaires" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h4&gt;(Au choix et si le temps le permet)&lt;span class="hx:absolute hx:-mt-20" id="au-choix-et-si-le-temps-le-permet"&gt;&lt;/span&gt;
+&lt;a href="#au-choix-et-si-le-temps-le-permet" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Utilisation du potentiomètre pour régler les heures/minutes/secondes.&lt;/li&gt;
+&lt;li&gt;Ajout de charactères personnalisés sur l&amp;rsquo;afficheur.&lt;/li&gt;
+&lt;li&gt;Récupération via le protocole I²C de la température du capteur TC74.&lt;/li&gt;
+&lt;li&gt;Ajout d&amp;rsquo;une alarme quand l&amp;rsquo;horloge atteint une heure configurée, avec une sonnerie ou une mélodie sur le buzzer P1.&lt;/li&gt;
+&lt;li&gt;Utilisation de l&amp;rsquo;écran comme un afficheur à décalage (comme dans les bus/trams).&lt;/li&gt;
+&lt;li&gt;Toute autre idée que vous aimeriez développer avec les éléments à disposition sur la carte.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>03. Evaluation</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/3_evaluation/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/3_evaluation/</guid><description>
+&lt;h2&gt;Modalités de rendu&lt;span class="hx:absolute hx:-mt-20" id="modalités-de-rendu"&gt;&lt;/span&gt;
+&lt;a href="#modalit%c3%a9s-de-rendu" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Le rendu se fait par mail avec comme objet &lt;code&gt;[EN111] NOM1 NOM2&lt;/code&gt;, avant le 25 mai 23:59.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Groupes D et E : &lt;a href="mailto:nader.ajmi@bordeaux-inp.fr?subject=[EN111]%20NOM1%20NOM2"&gt;nader.ajmi@bordeaux-inp.fr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Groupe F : &lt;a href="mailto:Valery.Lebret@enseirb-matmeca.fr?subject=[EN111]%20NOM1%20NOM2"&gt;valery.lebret@enseirb-matmeca.fr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Groupe G : &lt;a href="mailto:jsaussereau@bordeaux-inp.fr?subject=[EN111]%20NOM1%20NOM2"&gt;jsaussereau@bordeaux-inp.fr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ressouces à rendre&lt;span class="hx:absolute hx:-mt-20" id="ressouces-à-rendre"&gt;&lt;/span&gt;
+&lt;a href="#ressouces-%c3%a0-rendre" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Le code source (tous les fichiers &lt;code&gt;.c&lt;/code&gt; et &lt;code&gt;.h&lt;/code&gt; dans le dossier &lt;code&gt;src&lt;/code&gt;) compressés dans une archive &lt;code&gt;.zip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Un rapport par binôme, d&amp;rsquo;environ 10 pages (hors annexe), au format &lt;code&gt;.pdf&lt;/code&gt;, contenant :
+&lt;ul&gt;
+&lt;li&gt;Une introduction du contexte en résumant le cahier des charges et en présentant les ressources utiles de la carte.&lt;/li&gt;
+&lt;li&gt;Une explication de la conception de chacune des parties du projet :
+&lt;ul&gt;
+&lt;li&gt;Génération de l&amp;rsquo;interruption toutes les secondes
+&lt;ul&gt;
+&lt;li&gt;Configuration du timer&lt;/li&gt;
+&lt;li&gt;Configuration du module CCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Développement de la bibliothèque pour l&amp;rsquo;afficheur LCD
+&lt;ul&gt;
+&lt;li&gt;Simplification des accès&lt;/li&gt;
+&lt;li&gt;Développement d&amp;rsquo;une fonction d&amp;rsquo;envoi de n&amp;rsquo;importe quelle commande&lt;/li&gt;
+&lt;li&gt;Développement des fonctions correspondants aux différentes commandes&lt;/li&gt;
+&lt;li&gt;Développement de la fonction d&amp;rsquo;initialisation&lt;/li&gt;
+&lt;li&gt;Développement des fonctions utilisateur restantes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Affichage de l&amp;rsquo;horloge sur l&amp;rsquo;écran LCD&lt;/li&gt;
+&lt;li&gt;Développement de la fonctionnalité de configuration de l&amp;rsquo;horloge&lt;/li&gt;
+&lt;li&gt;Eventuelle(s) partie(s) bonus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Une conclusion sur les enseignements que l&amp;rsquo;on peut tirer de ce projet. Tant d&amp;rsquo;un point de vue technique que méthodologique.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Compléments sur le rapport&lt;span class="hx:absolute hx:-mt-20" id="compléments-sur-le-rapport"&gt;&lt;/span&gt;
+&lt;a href="#compl%c3%a9ments-sur-le-rapport" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Dès que l&amp;rsquo;on utilise &lt;strong&gt;directement&lt;/strong&gt; des registres du microcontrôleur, expliquer :
+&lt;ul&gt;
+&lt;li&gt;Quels sont les registres utilisés ?&lt;/li&gt;
+&lt;li&gt;Quelles sont les valeurs qui ont été mises dans ces registres ?&lt;/li&gt;
+&lt;li&gt;Quelles actions ont ces valeurs techniquement ?&lt;/li&gt;
+&lt;li&gt;Quelles sont les fonctionnalités recherchées qui justifient ces valeurs ?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pour l&amp;rsquo;explication des fonctions, il ne s&amp;rsquo;agit pas de juste expliquer ce qu&amp;rsquo;elles font fonctionnemment (ça c&amp;rsquo;est le cahier des charges, que l&amp;rsquo;on a déjà). Il s&amp;rsquo;agit d&amp;rsquo;expliquer &lt;strong&gt;comment elles ont été implémentées&lt;/strong&gt; (opérations utilisées, logique, optimisations, &amp;hellip;) et pourquoi elles sont implémentées comme ça et pas autrement.&lt;/li&gt;
+&lt;li&gt;De manière générale, dès que des choix on été fait, comme des choix de configuration de module, ou des choix d&amp;rsquo;implémentation, expliquer ces choix, &lt;strong&gt;même quand plusieurs configurations correspondaient aux exigences&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;La description de &lt;code&gt;lcd_write_instr_4bits&lt;/code&gt;, &lt;code&gt;lcd_write_instr_8bits&lt;/code&gt; et &lt;code&gt;lcd_init&lt;/code&gt; pourra être accompagnée d&amp;rsquo;organigrammes expliquant le déroulement de ces fonctions.&lt;/li&gt;
+&lt;li&gt;La description de la partie de configuration de l&amp;rsquo;horloge pourra être accompagnée d&amp;rsquo;un diagramme de la machine d&amp;rsquo;état.&lt;/li&gt;
+&lt;li&gt;Bien faire apparaître, et justifier, ce qui est effectué par interruption et ce qui ne l&amp;rsquo;est pas.&lt;/li&gt;
+&lt;li&gt;Même si vous n&amp;rsquo;avez pas réalisé une partie, vous pouvez l&amp;rsquo;indiquer et expliquer comment vous auriez fait.&lt;/li&gt;
+&lt;li&gt;Bon courage ;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition important"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Important&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;ol&gt;
+&lt;li&gt;Le code source doit compiler !&lt;/li&gt;
+&lt;li&gt;La note qui vous sera attribuée sur ce module tient également compte du travail observé durant les séances de TP + projet et des éventuelles absences non justifiées.&lt;/li&gt;
+&lt;li&gt;Le &lt;a href="https://nuxeo.ipb.fr/nuxeo/nxfile/default/fa82b9dd-f22c-4d41-8ace-5a5e7fa7e60d/blobholder:0/Charte-anti-plagiat.pdf" target="_blank" rel="noopener"&gt;plagiat&lt;/a&gt; constitue une fraude dont les conséquences peuvent être graves :
+attribution d’une note de zéro au travail incriminé, exclusion de l’établissement, exclusion définitive de tout établissement d’enseignement supérieur français.&lt;br&gt;
+En matière de propriété intellectuelle, le plagiat constitue un délit.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>04. Get started</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/4_get_started/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/4_get_started/</guid><description>
+&lt;h2 id="aide_get_started"&gt; 1. Get started 🏁&lt;/h2&gt;
+&lt;p&gt;Un projet déjà configuré est disponible dans &lt;code&gt;work&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Plusieurs fichiers sont déjà créés dans le dossier &lt;code&gt;src&lt;/code&gt; (voir &amp;ldquo;Header Files&amp;rdquo; et &amp;ldquo;Source Files&amp;rdquo; dans MPLABX) :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;main.c&lt;/code&gt; : Fichier principal. C&amp;rsquo;est ici que se trouve la fonction main et la fonction d&amp;rsquo;interruption.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;timer.c&lt;/code&gt; et &lt;code&gt;timer.h&lt;/code&gt; : Fichiers où développer &lt;a href="#aide_led"&gt;la configuration du timer&lt;/a&gt;, &lt;a href="#aide_horloge"&gt;la mise en forme&lt;/a&gt; et &lt;a href="#aide_conf_horloge"&gt;la configuration&lt;/a&gt; de l&amp;rsquo;horloge.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lib_LCD.c&lt;/code&gt; et &lt;code&gt;lib_LCD.h&lt;/code&gt; : Fichiers où développer &lt;a href="#aide_lib_lcd"&gt;la bibliothèque LCD&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;À chaque étape, pensez à faire valider votre travail avant de passer aux étapes suivantes.&lt;/p&gt;</description></item><item><title>05. Clignotement de la LED</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</guid><description>
+&lt;h2 id="aide_led"&gt; 2. Clignotement de la LED à la fréquence 0.5 Hz &lt;/h2&gt;
+&lt;h3&gt;2.1 Choix de la stratégie&lt;span class="hx:absolute hx:-mt-20" id="21-choix-de-la-stratégie"&gt;&lt;/span&gt;
+&lt;a href="#21-choix-de-la-strat%c3%a9gie" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Nous avons ici une exigence de précision, alors comme en TP, c&amp;rsquo;est la stratégie par interruption qui s&amp;rsquo;impose face à l&amp;rsquo;attente active.&lt;/p&gt;
+&lt;p&gt;Pour génerer les interruptions qui ferront clignoter la LED, nous avons le choix entre les 3 timers du microcontrôleur.&lt;/p&gt;
+&lt;p&gt;La datasheet &lt;em&gt;DS_PIC16F877A&lt;/em&gt; nous apprend qu&amp;rsquo;il est possible de configurer le Timer 1 sur une horloge externe.
+Le schéma à la page 19 de la datasheet de la carte PICDEM2+ &lt;em&gt;DS_PICDEM_2_Plus_Users_Guide&lt;/em&gt; montre qu&amp;rsquo;il y a un quartz (Y3) de 32.768 kHz ($2^{15}$ Hz) relié aux broches OSO (RC0) et OSI (RC1) du PIC.&lt;/p&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;L&amp;rsquo;incrémentation d&amp;rsquo;un compteur 16 bits comme le Timer 1 à une fréquence de $2^{15}$ Hz permettrait un débordement de celui-ci toutes les 2 secondes ($2^{16} / 2^{15}$) très précisément.
+Le Timer 1 est donc un bon candidat pour cette application.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3&gt;2.2 Développement d&amp;rsquo;une bibliothèque pour le Timer 1&lt;span class="hx:absolute hx:-mt-20" id="22-développement-dune-bibliothèque-pour-le-timer-1"&gt;&lt;/span&gt;
+&lt;a href="#22-d%c3%a9veloppement-dune-biblioth%c3%a8que-pour-le-timer-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;La section &amp;ldquo;Timer1&amp;rdquo; de la datasheet du microcontrôleur &lt;em&gt;DS_PIC16F877A&lt;/em&gt; détaille le fonctionnement de ce timer, avec notamment un schéma de son fonctionnement et un tableau regroupant les registres à utiliser pour le configurer.&lt;/p&gt;
+&lt;p&gt;On cherche tout d&amp;rsquo;abord à définir à l&amp;rsquo;aide de &lt;code&gt;#define&lt;/code&gt; dans &lt;code&gt;timer.h&lt;/code&gt; (Header Files) les différentes valeurs des champs associés au Timer 1. Cela permettra d&amp;rsquo;avoir juste à choisir la bonne constante lors de la configuration du timer.&lt;/p&gt;
+&lt;p&gt;En plus de faciliter l&amp;rsquo;étape de configuration, l&amp;rsquo;objectif est que par la suite chaque ligne de code soit compréhensible sans avoir à regarder la datasheet.&lt;/p&gt;
+&lt;h3&gt;Exemple de ce qu&amp;rsquo;il &lt;strong&gt;ne faut PAS&lt;/strong&gt; faire :&lt;span class="hx:absolute hx:-mt-20" id="exemple-de-ce-quil-ne-faut-pas-faire-"&gt;&lt;/span&gt;
+&lt;a href="#exemple-de-ce-quil-ne-faut-pas-faire-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;timer.c&lt;/code&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;timer_init&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; T1CON &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0x4c&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;La notation est compacte mais on ne comprend rien à ce qu&amp;rsquo;il se passe&amp;hellip;
+Sans la datasheet sous les yeux et un effort de compréhension (avec risque d&amp;rsquo;erreur), impossible de savoir à quelle configuration correspond cette valeur.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"&gt;&lt;path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Dans le milieu professionnel, les codes sont écrits par plusieurs personnes et doivent pouvoir être repris par n&amp;rsquo;importe qui dans le futur. Il donc est impensable de proposer un tel code en entreprise.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3&gt;Exemple de notation bien plus lisible :&lt;span class="hx:absolute hx:-mt-20" id="exemple-de-notation-bien-plus-lisible-"&gt;&lt;/span&gt;
+&lt;a href="#exemple-de-notation-bien-plus-lisible-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;timer.h&lt;/code&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//T1CONbits.T1CKPS :
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define T1_PRESCALER_DIV8 0b11
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define T1_PRESCALER_DIV4 0b10
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define T1_PRESCALER_DIV2 0b01
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define T1_PRESCALER_DIV1 0b00
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;timer.c&lt;/code&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;timer_init&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; T1CONbits.T1CKPS &lt;span style="color:#f92672"&gt;=&lt;/span&gt; T1_PRESCALER_DIV8; &lt;span style="color:#75715e"&gt;// Division par 8 car ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; T1CONbits.T1OSCEN &lt;span style="color:#f92672"&gt;=&lt;/span&gt; ...;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;L&amp;rsquo;exemple ci dessus met en oeuvre plusieurs bonnes pratiques :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;L&amp;rsquo;initialisation des champs indépendaments les uns des autres plutôt que d&amp;rsquo;écrire sur tout le registre : le code est plus simple à comprendre et à modifier.&lt;/li&gt;
+&lt;li&gt;L&amp;rsquo;utilisation de constantes avec des noms signifiants : permet de comprendre facilement quel est le rôle de la valeur qui a été mise dans le champs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="admonition note"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"&gt;&lt;path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Cette notation demande un effort supplémentaire lors de l&amp;rsquo;écriture du programme mais rendra le débuggage et la modification tellement plus facile. Ici, même sans la datasheet, on comprend ce qu&amp;rsquo;il se passe.
+De plus, les commentaires sont un bon moyen de se rappeler pourquoi on a fait tel ou tel choix.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3&gt;2.3 Configuration du timer&lt;span class="hx:absolute hx:-mt-20" id="23-configuration-du-timer"&gt;&lt;/span&gt;
+&lt;a href="#23-configuration-du-timer" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Il ne reste plus qu&amp;rsquo;à utiliser ces définitions pour l&amp;rsquo;initialisation du timer dans la fonction &lt;code&gt;timer_init&lt;/code&gt; (&lt;code&gt;timer.c&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;objectif étant dans un premier temps de le configurer pour qu&amp;rsquo;il déclenche une iterruption toutes les deux secondes.&lt;/p&gt;
+&lt;p&gt;La section &lt;code&gt;TIMER1 MODULE&lt;/code&gt; de la datasheet &lt;em&gt;DS_PIC16F877A&lt;/em&gt; décrit le fonctionnement du Timer1. Le schéma page 58 aide à comprendre son fonctionnement et le rôle de chaque champ de configuration.&lt;/p&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Le tableau à la page 60 de la datasheet &lt;em&gt;DS_PIC16F877A&lt;/em&gt; met en évidence tous les champs liés au Timer1. Pour être sûr de l&amp;rsquo;avoir bien configuré, il faut être sûr de comprendre quel est le rôle de chacun de ces champs et être sûr d&amp;rsquo;avoir assigné la bonne valeur aux champs qui en ont besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Une fois le timer configuré, on veut déclencher une interruption à chaque débordement. Il faut aussi configurer notre fonction d&amp;rsquo;interruption pour faire changer d&amp;rsquo;état la LED à chaque interruption.&lt;/p&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Le schéma page 153 permet de visualiser les conditions à remplir pour qu&amp;rsquo;une interruption se déclenche.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"&gt;&lt;path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Une fois les interruptions configurées, on peut déjà essayer sur la carte pour voir si on a bien la LED qui change d&amp;rsquo;état toutes les 2 secondes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3&gt;2.4 Configuration du module CCP&lt;span class="hx:absolute hx:-mt-20" id="24-configuration-du-module-ccp"&gt;&lt;/span&gt;
+&lt;a href="#24-configuration-du-module-ccp" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Pour avoir un débordement toutes les secondes (et plus toutes les 2 secondes), on peut utiliser un module de comparaison CCP.&lt;br&gt;
+Le but est ici d&amp;rsquo;utiliser ce module pour générer une interruption à chaque fois que la valeur du compteur du Timer1 est à mi-parcours (entre deux interruptions de débordement). Il faut donc également activer les interruptions sur le module CCP.&lt;/p&gt;
+&lt;p&gt;Les modules CCP peuvent être utilisés dans différentes configurations, il faut choisir la plus adaptée au besoin.&lt;br&gt;
+Il faut aussi penser à bien mettre une valeur à comparer.&lt;/p&gt;
+&lt;p&gt;Comme pour la configuration du timer, la configuration du module CCP se fera a l&amp;rsquo;aide de constantes définies au préalable.&lt;/p&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Le tableau à la page 68 de la datasheet &lt;em&gt;DS_PIC16F877A&lt;/em&gt; met en évidence tous les champs liés au module CCP. Pour être sûr de l&amp;rsquo;avoir bien configuré, il faut être sûr de comprendre quel est le rôle de chacun de ces champs et être sûr d&amp;rsquo;avoir assigné la bonne valeur aux champs qui en ont besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>06. LCD Etape #1</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/</guid><description>
+&lt;h2 id="aide_lib_lcd"&gt; 3. Développement de la bibliothèque pour l'afficheur LCD &lt;/h2&gt;
+&lt;h3&gt;Documentation&lt;span class="hx:absolute hx:-mt-20" id="documentation"&gt;&lt;/span&gt;
+&lt;a href="#documentation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Pour développer la bibliothèque LCD, 2 documents seront utiles :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;DS_PICDEM_2_Plus_Users_Guide&lt;/em&gt; : Datasheet de la carte de développement. Le schéma électrique page 19 permet de comprendre les interconnexions entre le microcontrôleur et le module LCD.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt; : Datasheet du module LCD. On y trouve la description des entrées/sorties du module (page 4), ansi que les chronogrammes à respecter pour ces signaux (pages 23-24). Toutes les commandes proposées par le module y sont détaillées (pages 5-7). Enfin, la datasheet explicite la procédure d&amp;rsquo;initialisation du module (pages 10-11).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;ins&gt;Étape 1&lt;/ins&gt; : Simplification des accès&lt;span class="hx:absolute hx:-mt-20" id="étape-1--simplification-des-accès"&gt;&lt;/span&gt;
+&lt;a href="#%c3%a9tape-1--simplification-des-acc%c3%a8s" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Pour envoyer des instructions, il faut être capable d&amp;rsquo;accéder individuellement aux différents champs du port D qui contrôlent l&amp;rsquo;écran LCD. Il est notamment nécessaire d&amp;rsquo;écrire sur les 4 bits de données sans modifier les autres bits du port.&lt;/p&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Avant toute chose, il est donc vivement recommandé de simplifier les lectures/écritures sur les différents champs du module LCD.&lt;br&gt;
+Deux approches sont présentées ici.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4&gt;Méthode 1 : Masquage&lt;span class="hx:absolute hx:-mt-20" id="méthode-1--masquage"&gt;&lt;/span&gt;
+&lt;a href="#m%c3%a9thode-1--masquage" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;details&gt;
+&lt;summary&gt;Cliquer ici pour étendre&lt;/summary&gt;
+&lt;p&gt;Le plus simple est de définir à l&amp;rsquo;aide de &lt;code&gt;#define&lt;/code&gt; les alias des différents bits, pour un accès plus clair.&lt;br&gt;
+Les accès au bits se font ainsi simplement par leurs noms. Pour écrire sur plusieurs bits, il faut effectuer un &lt;a href="https://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_9___Manipulation_binaire.pdf" target="_blank" rel="noopener"&gt;masquage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;/em&gt; : On a ici la chance de pouvoir accéder aux bits individuellement de base. Sinon, il aurait fallu utiliser le masquage dans tous les cas.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Exemple&lt;/strong&gt;&lt;/em&gt; :&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;lib_LCD.h&lt;/code&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define LCD PORTD
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define E RD6
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define E_ENABLED 0b1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define E_DISABLED 0b0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;lib_LCD.c&lt;/code&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;lcd_write_instr_8bits&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; rs, &lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; rw, &lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; data) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// [...]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; RS &lt;span style="color:#f92672"&gt;=&lt;/span&gt; rs;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; RW &lt;span style="color:#f92672"&gt;=&lt;/span&gt; rw;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; LCD &lt;span style="color:#f92672"&gt;&amp;amp;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0xf0&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// mise à 0 des 4 bits de poids faible
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; LCD &lt;span style="color:#f92672"&gt;|=&lt;/span&gt; (data_MSB &lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0x0f&lt;/span&gt;); &lt;span style="color:#75715e"&gt;// application des 4 MSB de la donnée sur les 4 LSB de LCD
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; E &lt;span style="color:#f92672"&gt;=&lt;/span&gt; E_ENABLED;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// [...]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/details&gt;
+&lt;h4&gt;Méthode 2 : Champs de bits (bitfields)&lt;span class="hx:absolute hx:-mt-20" id="méthode-2--champs-de-bits-bitfields"&gt;&lt;/span&gt;
+&lt;a href="#m%c3%a9thode-2--champs-de-bits-bitfields" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Une autre méthode, plus pratique à utiliser, se base sur le même principe d&amp;rsquo;&lt;a href="https://www.tutorialspoint.com/cprogramming/c_unions.htm" target="_blank" rel="noopener"&gt;union&lt;/a&gt; de &lt;a href="https://www.tutorialspoint.com/cprogramming/c_bit_fields.htm" target="_blank" rel="noopener"&gt;bitfields&lt;/a&gt; que dans le fichier d&amp;rsquo;include &lt;code&gt;pic16f877a.h&lt;/code&gt;. Il suffit de créer un nouveau type sur le modèle de celui associé au PORTD.&lt;/p&gt;
+&lt;p&gt;Comme dans le fichier d&amp;rsquo;include, on peut donner plusieurs définitions aux &lt;a href="https://www.tutorialspoint.com/cprogramming/c_bit_fields.htm" target="_blank" rel="noopener"&gt;bitfields&lt;/a&gt; grâce aux &lt;a href="https://www.tutorialspoint.com/cprogramming/c_unions.htm" target="_blank" rel="noopener"&gt;unions&lt;/a&gt;. On peut par exemple nommer les bits un à un, et, plus intéressant, définir des champs. Cela rend les lectures/écritures très simples.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"&gt;&lt;path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;L&amp;rsquo;ordre des bits dans les champs de bits n&amp;rsquo;est hélas pas normé, il dépend du compilateur et de l&amp;rsquo;architecture. Sur PIC, avec le compilateur XC8, le bit de poids faible (LSB) est en premier et le bit de poids fort (MSB) est en dernier.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;Exemple&lt;/strong&gt;&lt;/em&gt; :&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;lib_LCD.h&lt;/code&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;typedef&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;union&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// définitions des bits individuellement :
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; DB4 :&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bit 0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; DB5 :&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bit 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; DB6 :&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bit 2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; DB7 :&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bit 3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; RS :&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bit 4
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; RW :&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bit 5
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; E :&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bit 6
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; POWER :&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bit 7
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; };
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// définition des champs :
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; DB :&lt;span style="color:#ae81ff"&gt;4&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bits 0 à 3 : données
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; OPERATION :&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// bits 4 et 5 : RS et RW : définissent le type d&amp;#39;opération
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;unsigned&lt;/span&gt; &lt;span style="color:#f92672"&gt;:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// E et POWER déjà définis, facultatif
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; };
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} LCDbits_t;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;extern&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;volatile&lt;/span&gt; LCDbits_t LCDbits &lt;span style="color:#960050;background-color:#1e0010"&gt;@&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0x008&lt;/span&gt;; &lt;span style="color:#75715e"&gt;// Définition de &amp;#34;LCDbits&amp;#34; de type LCDbits_t, avec l&amp;#39;adresse du PORTD
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Grâce au mot-clé &lt;a href="https://www.tutorialspoint.com/cprogramming/c_typedef.htm" target="_blank" rel="noopener"&gt;typedef&lt;/a&gt;, on a ici défini notre propre type &lt;code&gt;LCDbits_t&lt;/code&gt;, qui est une &lt;a href="https://www.tutorialspoint.com/cprogramming/c_unions.htm" target="_blank" rel="noopener"&gt;union&lt;/a&gt; de &lt;a href="https://www.tutorialspoint.com/cprogramming/c_bit_fields.htm" target="_blank" rel="noopener"&gt;bitfields&lt;/a&gt;, représentant les champs de l&amp;rsquo;écran LCD, connectés au port D.&lt;/p&gt;
+&lt;p&gt;Pour utiliser ce type sur le port D, on déclare donc une variable &lt;code&gt;LCDbits&lt;/code&gt; de type &lt;code&gt;LCDbits_t&lt;/code&gt; à l&amp;rsquo;adresse &lt;code&gt;0x008&lt;/code&gt; qui est l&amp;rsquo;adresse du port D. C&amp;rsquo;est très exactement de la même manière que &lt;code&gt;PORTDbits&lt;/code&gt; est défini dans &lt;code&gt;pic16f877a.h&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Grâce aux deux définitions spécifiées du port, on a alors plusieurs façons d&amp;rsquo;accéder à nos signaux :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On peut accéder au bits individuellement, comme DB5, RS, RW pu E par exemple.&lt;/li&gt;
+&lt;li&gt;On peut accéder à des champs entiers comme DB (DB7-DB4) ou OPERATION (RS,RW)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Exemple d&amp;rsquo;utilisation :
+&lt;code&gt;lib_LCD.c&lt;/code&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;lcd_write_instr_8bits&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; rs, &lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; rw, &lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; data_8bits) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// [...]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; LCDbits.RS &lt;span style="color:#f92672"&gt;=&lt;/span&gt; rs;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// [...]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; LCDbits.DB &lt;span style="color:#f92672"&gt;=&lt;/span&gt; data_MSB;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; LCDbits.E &lt;span style="color:#f92672"&gt;=&lt;/span&gt; E_ENABLED;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// [...]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>07. LCD Etape #2</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/7_lcd_2/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/7_lcd_2/</guid><description>
+&lt;h3&gt;&lt;ins&gt;Étape 2&lt;/ins&gt; : Développement d&amp;rsquo;une fonction d&amp;rsquo;envoi de n&amp;rsquo;importe quelle commande&lt;span class="hx:absolute hx:-mt-20" id="étape-2--développement-dune-fonction-denvoi-de-nimporte-quelle-commande"&gt;&lt;/span&gt;
+&lt;a href="#%c3%a9tape-2--d%c3%a9veloppement-dune-fonction-denvoi-de-nimporte-quelle-commande" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Maintenant que les accès aux différents champs associés au module LCD sont plus simples à utiliser, la prochaine étape est de développer des fonctions qui pourront être utilisées par toutes les fonctions qui ont besoin d&amp;rsquo;envoyer une commande au module.&lt;/p&gt;
+&lt;p&gt;La datasheet du module LCD &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt; nous apprend que l&amp;rsquo;on peut câbler ce module LCD à un microcontrôleur sur 8 bits (DB7-DB0) ou 4 bits (DB7-DB4)&lt;/p&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Le schéma à la page 19 de la datasheet de la carte PICDEM2+ &lt;em&gt;DS_PICDEM_2_Plus_Users_Guide&lt;/em&gt; montre comment le module LCD est relié au microcontrôleur. On voit que le bus de données est ici utilisé sur 4 bits.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"&gt;&lt;path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Cela n&amp;rsquo;a pas d&amp;rsquo;impact sur la taille des commandes que l&amp;rsquo;on peut envoyer. En effet, même lorsqu&amp;rsquo;il est cablé sur 4 bits, l&amp;rsquo;afficheur LCD peut recevoir des commandes avec des données de 4 bits ou bien 8 bits. C&amp;rsquo;est le protocole de communication qui change.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;On va donc développer des fonctions pour ces deux cas :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lcd_write_instr_4bits&lt;/code&gt; : envoi d&amp;rsquo;une commande avec 4 bits de données (pour les premières commandes de l&amp;rsquo;initialisation)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_write_instr_8bits&lt;/code&gt; : envoi d&amp;rsquo;une commande avec 8 bits de données (pour toutes les commandes classiques)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="admonition important"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Important&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Dans les deux cas, pour envoyer ces données, il faut veiller à respecter les chronogrammes à la page 24 de la datasheet &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4&gt;➤ Commandes 4 bits :&lt;span class="hx:absolute hx:-mt-20" id="-commandes-4-bits-"&gt;&lt;/span&gt;
+&lt;a href="#-commandes-4-bits-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Dans la datasheet du module LCD &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt; on voit que pour la partie d&amp;rsquo;initialisation, il y a des commandes avec une données de 4 bits et 2 bits de contrôle.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est le cas le plus simple : on écrit 4 bits de données sur un bus de 4 bits.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;lcd_write_instr_4bits&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; rs, &lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; rw, &lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; data_4bits) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// on assigne les signaux de contrôle
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// on écrit les 4 bits de la donnée
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Pour faire des temporisations on peut utiliser les macros dans la bibliothèque &lt;code&gt;pic.h&lt;/code&gt; (déjà importée par &lt;code&gt;xc.h&lt;/code&gt;) :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;__delay_us(unsigned int t)&lt;/code&gt; : délai en microsecondes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__delay_ms(unsigned int t)&lt;/code&gt; : délai en millisecondes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;__delay_us&lt;/code&gt; et &lt;code&gt;__delay_ms&lt;/code&gt; sont implémentées sous forme de boucles qui utilisent le paramètre &lt;code&gt;_XTAL_FREQ&lt;/code&gt; (fréquence de l&amp;rsquo;oscilateur du microcontrôleur) pour faire des délais. Il faudra donc penser à le définir :&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define _XTAL_FREQ XXXXXXX &lt;/span&gt;&lt;span style="color:#75715e"&gt;// remplacer XXXXXXX par la fréquence du microcontroleur
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"&gt;&lt;path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Il faudra aussi se poser la question de la pertinence des délais les plus courts, au vu de la période l&amp;rsquo;horloge du microcontrôleur et sachant qu&amp;rsquo;une instruction assembleur s&amp;rsquo;exécute en 4 cycles d&amp;rsquo;horloge&amp;hellip;
+Combien de temps s&amp;rsquo;écoule-t-il entre la fin de l&amp;rsquo;exécution d&amp;rsquo;une instruction et la fin de l&amp;rsquo;exécution de la suivante ?&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4&gt;➤ Commandes 8 bits :&lt;span class="hx:absolute hx:-mt-20" id="-commandes-8-bits-"&gt;&lt;/span&gt;
+&lt;a href="#-commandes-8-bits-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Dans le tableau récapitulatif des commandes du module LCD dans la datasheet &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt;, on voit que les autres commandes sont composées d&amp;rsquo;une donnée sur 8 bits et, comme en mode 4 bits, 2 bits de contrôle.&lt;/p&gt;
+&lt;p&gt;On repart donc sur la même base qu&amp;rsquo;en mode 4 bits.
+La différence est qu&amp;rsquo;il faut être capable d&amp;rsquo;envoyer 8 bits de données sur un bus de 4 bits.&lt;/p&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Pour envoyer 8 bits de données sur un bus de 4 bits, pas le choix, il faut envoyer les données en 2 fois.
+Il faut donc faire des &lt;a href="https://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_9___Manipulation_binaire.pdf" target="_blank" rel="noopener"&gt;opérations binaires&lt;/a&gt; afin de séparer les 4 bits de poids fort des 4 bits de poids faible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition important"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Important&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Le protocole exige d&amp;rsquo;envoyer les bits de poids fort en premier.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;lcd_write_instr_8bits&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; rs, &lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; rw, &lt;span style="color:#66d9ef"&gt;uint8_t&lt;/span&gt; data_8bits) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// on assigne les signaux de contrôle
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// on écrit les 4 bits de poids fort de la donnée
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// on écrit les 4 bits de poids faible de la donnée
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;➤ lcd_busy :&lt;span class="hx:absolute hx:-mt-20" id="-lcd_busy-"&gt;&lt;/span&gt;
+&lt;a href="#-lcd_busy-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Avant d&amp;rsquo;envoyer une commande il faut s&amp;rsquo;assurer que le module n&amp;rsquo;est pas occupé à exécuter la commande précédente. Sinon la commande envoyée ne sera pas exécutée.&lt;/p&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Pour savoir si la précédente commande a fini d&amp;rsquo;être exécutée, il est possible de lire le bit &amp;lsquo;busy&amp;rsquo;, avec la commande correspondante.
+Cependant, dans un premier temps, par souci de simplicité, on peut se contenter d&amp;rsquo;une temporisation. Sa durée doit à être supérieure au temps d&amp;rsquo;exécution de la commande la plus longue (cf. &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>08. LCD Etape #3</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/8_lcd_3/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/8_lcd_3/</guid><description>
+&lt;h3&gt;&lt;ins&gt;Étape 3&lt;/ins&gt; : Développement des fonctions correspondant aux différentes commandes&lt;span class="hx:absolute hx:-mt-20" id="étape-3--développement-des-fonctions-correspondant-aux-différentes-commandes"&gt;&lt;/span&gt;
+&lt;a href="#%c3%a9tape-3--d%c3%a9veloppement-des-fonctions-correspondant-aux-diff%c3%a9rentes-commandes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;La page 7 de la datasheet du module LCD &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt; liste toutes les commandes proposées par le module. Avant de chercher à développer la fonction d&amp;rsquo;initialisation, il est préférable de développer des fonctions correspondant à ces commandes.&lt;/p&gt;
+&lt;p&gt;Notamment les suivantes :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Clear Display &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Return Home &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Entry Mode Set &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Display ON/OFF Control &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Function Set &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Ces commandes sont caractérisées par 3 valeurs : &lt;code&gt;rs&lt;/code&gt;, &lt;code&gt;rw&lt;/code&gt; et une donnée de 8 bits.
+Ce sont justement les paramètres de la foncton &lt;code&gt;lcd_write_instr_8bits&lt;/code&gt; décrite plus tôt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Pour générer la donnée de la commande avec les bons arguments, il sera nécessaire pour certaines fonctions d&amp;rsquo;effectuer des &lt;a href="https://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_9___Manipulation_binaire.pdf" target="_blank" rel="noopener"&gt;opérations binaires&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>09. LCD Etape #4</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/9_lcd_4/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/9_lcd_4/</guid><description>
+&lt;h3&gt;&lt;ins&gt;Étape 4&lt;/ins&gt; : Développement de la fonction d&amp;rsquo;initialisation&lt;span class="hx:absolute hx:-mt-20" id="étape-4--développement-de-la-fonction-dinitialisation"&gt;&lt;/span&gt;
+&lt;a href="#%c3%a9tape-4--d%c3%a9veloppement-de-la-fonction-dinitialisation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;La page 11 de la datasheet du module LCD &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt; détaille la procédure d&amp;rsquo;initialisation du module.&lt;/p&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Plutôt que d&amp;rsquo;envoyer les commandes avec les données brutes dans cette procédure, il est préférable de comprendre ce que fait chacune d&amp;rsquo;entre elles.
+Ainsi, on remarque qu&amp;rsquo;une grande partie de la procédure d&amp;rsquo;initialisation peut être réalisée en effectuant des appels aux fonctions définies plus haut.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition important"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Important&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;ul&gt;
+&lt;li&gt;Penser à l&amp;rsquo;alimentation du module (&lt;em&gt;cf.&lt;/em&gt; datasheet de la carte PICDEM2+).&lt;/li&gt;
+&lt;li&gt;Penser aux ports du microcontrôleur qui ont été utilisés&amp;hellip; Ont-ils bien été définis comme entrée/sortie ?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"&gt;&lt;path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;À ce stade on peut tester si tout fonctionne. Pour cela, on peut ajouter un appel à &lt;code&gt;lcd_display_control&lt;/code&gt; avec les bons paramètres pour allumer l&amp;rsquo;écran et faire clignoter le curseur.
+Ainsi, si après avoir téléversé le programme sur la carte, le curseur clignote sur l&amp;rsquo;écran, les étapes précédentes sont validées !&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>10. LCD Etape #5</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/10_lcd_5/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/10_lcd_5/</guid><description>
+&lt;h3&gt;&lt;ins&gt;Étape 5&lt;/ins&gt; : Développement des fonctions utilisateur restantes&lt;span class="hx:absolute hx:-mt-20" id="étape-5--développement-des-fonctions-utilisateur-restantes"&gt;&lt;/span&gt;
+&lt;a href="#%c3%a9tape-5--d%c3%a9veloppement-des-fonctions-utilisateur-restantes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Il ne manque alors plus qu&amp;rsquo;à réaliser les fonctions :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lcd_putch&lt;/code&gt; pour écrire un caractère&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_puts&lt;/code&gt; pour écrire une chaîne de caractères&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_pos&lt;/code&gt; pour le positionnement du curseur en un point de l&amp;rsquo;écran&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>11. Affichage de l'horloge</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/11_horloge/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/11_horloge/</guid><description>
+&lt;h2 id="aide_horloge"&gt; 4. Affichage de l'horloge sur l'écran LCD &lt;/h2&gt;
+&lt;p&gt;Maintenant que l&amp;rsquo;on peut afficher ce que l&amp;rsquo;on veut sur écran, on cherche à afficher l&amp;rsquo;horloge.
+On utilise donc la fonction d&amp;rsquo;interruption (déclenchée toutes les secondes grâce à la configuration du timer) pour générer les heures, minutes et secondes qui seront affichés sur l&amp;rsquo;écran.&lt;/p&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Comme toujours en programmation microcontroleur, bien réfléchir à ce qui doit être fait dans la fonction d&amp;rsquo;interruption et ce qui doit être fait ailleurs&amp;hellip;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Pour formatter l&amp;rsquo;horloge dans une chaîne de caractère, le plus simple est certainement d&amp;rsquo;utiliser la fonction &lt;code&gt;sprintf&lt;/code&gt; de la bibliothèque &lt;code&gt;stdio&lt;/code&gt;.
+Pour obtenir la documentation de &lt;code&gt;sprintf&lt;/code&gt;, il suffit de taper dans un terminal :&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;man sprintf&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;On voit qu&amp;rsquo;elle fonctionne comme &lt;code&gt;printf&lt;/code&gt; mais avec un argument en plus : une chaîne de charactère de destination.&lt;/p&gt;
+&lt;p&gt;Exemple :&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;char&lt;/span&gt; formatted_time[STRING_LENGTH]; &lt;span style="color:#75715e"&gt;// STRING_LENGTH: nombre de caractères après formatage + 1 (pour le &amp;#39;\0&amp;#39; de fin de chaîne)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;sprintf&lt;/span&gt;(formatted_time, &lt;span style="color:#e6db74"&gt;&amp;#34;%d:%d:%d&amp;#34;&lt;/span&gt;, t.hours, t.minutes, t.seconds);&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Résultat : &lt;code&gt;12:1:8&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Comme &lt;code&gt;printf&lt;/code&gt;, on peut forcer une mise en forme sur un nombre précis de charactères :&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;sprintf&lt;/span&gt;(formatted_time, &lt;span style="color:#e6db74"&gt;&amp;#34;%2d:%2d:%2d&amp;#34;&lt;/span&gt;, t.hours, t.minutes, t.seconds);&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Résultat : &lt;code&gt;12: 1: 8&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;De même, on peut forcer l&amp;rsquo;affichage des 0 :&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;sprintf&lt;/span&gt;(formatted_time, &lt;span style="color:#e6db74"&gt;&amp;#34;%02d:%02d:%02d&amp;#34;&lt;/span&gt;, t.hours, t.minutes, t.seconds);&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Résultat : &lt;code&gt;12:01:08&lt;/code&gt;&lt;/p&gt;</description></item><item><title>12. Configuration de l'horloge</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/12_configuration/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/12_configuration/</guid><description>
+&lt;h2 id="aide_conf_horloge"&gt; 5. Développement de la fonctionnalité de configuration de l'horloge &lt;/h2&gt;
+&lt;h3&gt;Rappel du cahier des charges&lt;span class="hx:absolute hx:-mt-20" id="rappel-du-cahier-des-charges"&gt;&lt;/span&gt;
+&lt;a href="#rappel-du-cahier-des-charges" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;L&amp;rsquo;objectif de cette partie est de pouvoir configurer l&amp;rsquo;horloge à l&amp;rsquo;aide des boutons poussoir S2 et S3 :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Un appui prolongé d&amp;rsquo;au moins 2 s sur S2 fera clignoter les heures, celles-ci s&amp;rsquo;incrémenteront à chaque appui sur S3, et automatiquement (f ≈ 5 Hz) en cas d&amp;rsquo;appui maintenu au-delà de 2 s.&lt;/li&gt;
+&lt;li&gt;Un nouvel appui sur S2 permettra un réglage des minutes selon la même procédure.&lt;/li&gt;
+&lt;li&gt;Éventuellement, un nouvel appui sur S2 permettra un réglage des secondes selon la même procédure.&lt;/li&gt;
+&lt;li&gt;Un dernier appui sur S2 fera quitter le mode &amp;ldquo;réglage&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Un bonne approche pour implémenter cette fonctionnalité est de développer une machine d&amp;rsquo;état.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="admonition tip"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"&gt;&lt;path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Conseil&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;Les interrupteurs physiques ont une période de rebonds qui peut provoquer des faux déclenchements. Pour éviter des changements d&amp;rsquo;états non désirés, un filtre anti-rebonds peut être implémenté à l&amp;rsquo;aide de délais de temporisation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3&gt;Machine d&amp;rsquo;état en C&lt;span class="hx:absolute hx:-mt-20" id="machine-détat-en-c"&gt;&lt;/span&gt;
+&lt;a href="#machine-d%c3%a9tat-en-c" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Le principe est le même que dans un langage de description matérielle comme le VHDL : représenter le comportement d&amp;rsquo;un système en réponse à des événements.&lt;/p&gt;
+&lt;p&gt;Voici un exemple de machine d&amp;rsquo;état implémentant le système de contrôle d&amp;rsquo;une porte automatique.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// Déclaration de l&amp;#39;enumération représentant les états
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;enum&lt;/span&gt; state_e {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ST_CLOSED,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ST_OPENED,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ST_CLOSING,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ST_OPENING
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;enum&lt;/span&gt; state_e state &lt;span style="color:#f92672"&gt;=&lt;/span&gt; ST_CLOSED; &lt;span style="color:#75715e"&gt;// Déclaration et initialisation de la variable contenant l&amp;#39;état
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; (&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;switch&lt;/span&gt;(state) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; ST_CLOSED:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// Condition de changement d&amp;#39;état
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (BTN_OPEN &lt;span style="color:#f92672"&gt;==&lt;/span&gt; BTN_ON) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; state &lt;span style="color:#f92672"&gt;=&lt;/span&gt; ST_OPENING;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; ST_OPENED:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// Comportement si le système est dans cet état
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (BTN_OPEN &lt;span style="color:#f92672"&gt;==&lt;/span&gt; BTN_ON) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;reset_timer_opened&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// Condition de changement d&amp;#39;état
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (timer_opened &lt;span style="color:#f92672"&gt;&amp;gt;=&lt;/span&gt; OPENED_DURATION) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; state &lt;span style="color:#f92672"&gt;=&lt;/span&gt; ST_CLOSING;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; ST_CLOSING:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// Comportement si le système est dans cet état
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;move_door&lt;/span&gt;(DIRECTION_CLOSE);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// Condition de changement d&amp;#39;état
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (SENSOR_SECURITY &lt;span style="color:#f92672"&gt;==&lt;/span&gt; PERSON_DETECTED &lt;span style="color:#f92672"&gt;||&lt;/span&gt; BTN_OPEN &lt;span style="color:#f92672"&gt;==&lt;/span&gt; BTN_ON) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; state &lt;span style="color:#f92672"&gt;=&lt;/span&gt; ST_OPENING;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; } &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (SENSOR_CLOSED &lt;span style="color:#f92672"&gt;==&lt;/span&gt; SENSOR_ON) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; state &lt;span style="color:#f92672"&gt;=&lt;/span&gt; ST_CLOSED;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; ST_OPENING:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// Comportement si le système est dans cet état
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;move_door&lt;/span&gt;(DIRECTION_OPEN);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// Condition de changement d&amp;#39;état
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (SENSOR_OPENED &lt;span style="color:#f92672"&gt;==&lt;/span&gt; SENSOR_ON) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;reset_timer_opened&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; state &lt;span style="color:#f92672"&gt;=&lt;/span&gt; ST_OPENED;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Architecture des processeurs II: Introduction</title><link>https://jsaussereau.github.io/fr/posts/eel8-numu5/1_intro/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel8-numu5/1_intro/</guid><description>
+&lt;h2&gt;Télécharger l&amp;rsquo;archive&lt;span class="hx:absolute hx:-mt-20" id="télécharger-larchive"&gt;&lt;/span&gt;
+&lt;a href="#t%c3%a9l%c3%a9charger-larchive" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Exécuter dans un terminal :&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd ~/Documents/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/jsaussereau/EN111PR.git&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copier le code"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Le dossier &lt;code&gt;EN111PR&lt;/code&gt; devrait être apparu sur votre session dans le dossier &lt;code&gt;Documents&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;summary&gt;Solution alternative&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;Cliquer &lt;a href="https://github.com/jsaussereau/EN111PR/archive/refs/heads/main.zip" target="_blank" rel="noopener"&gt;ici&lt;/a&gt; pour télécharger l&amp;rsquo;archive.&lt;/li&gt;
+&lt;li&gt;Extraire l&amp;rsquo;archive sur la session dans &lt;strong&gt;Documents&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;h2&gt;Organisation du répertoire&lt;span class="hx:absolute hx:-mt-20" id="organisation-du-répertoire"&gt;&lt;/span&gt;
+&lt;a href="#organisation-du-r%c3%a9pertoire" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Il y a 3 dossiers principaux :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;doc&lt;/strong&gt; : Contient les documents nécessaires pour le projet : sujet, datasheet du PIC16F877A, datasheets de la carte et de l&amp;rsquo;afficheur.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;src&lt;/strong&gt; : Contient les fichiers sources à utiliser (déjà importés dans le projet).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;work&lt;/strong&gt; : Le dossier dans lequel se situe le projet MPLABX, déjà configuré.&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
