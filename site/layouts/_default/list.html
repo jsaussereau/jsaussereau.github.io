@@ -1,0 +1,82 @@
+{{ define "navbar" }}
+    {{ partial "navigators/navbar.html" . }}
+{{ end }}
+
+{{ define "sidebar" }}
+  {{ $homePage:="#" }}
+  {{ if hugo.IsMultilingual }}
+    {{ $homePage = (path.Join (cond ( eq .Language.Lang "en") "" .Language.Lang) .Type) }}
+  {{ end }}
+
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="{{ "search" | relLangURL }}">
+          <input type="text" name="keyword" value="" placeholder="{{ i18n "search" }}" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="{{ .Type | relLangURL }}" data-filter="all">{{ i18n .Type }}</a></li>
+            <div class="subtree">
+                {{ partial "navigators/sidebar.html" (dict "menuName" "sidebar" "menuItems" site.Menus.sidebar "ctx" .) }}
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}
+
+{{ define "content" }}
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    {{ if eq .RelPermalink ("/posts/" | relLangURL) }}
+      {{ $sections := .Sections }}
+      <div class="container-fluid post-card-holder" id="post-card-holder">
+        {{ if gt (len $sections) 0 }}
+          {{ range $sections }}
+            <div class="post-card">
+              <div class="card h-100 shadow-sm">
+                <div class="card-head">
+                  <a href="{{ .RelPermalink }}" class="post-card-link">
+                    <img class="card-img-top" src='{{ partial "helpers/get-hero.html" . }}' alt="Hero Image">
+                  </a>
+                </div>
+                <div class="card-body">
+                  <a class="text-decoration-none" href="{{ .RelPermalink }}">
+                    <h5 class="card-title mb-2">{{ .Title }}</h5>
+                    {{ if .Summary }}
+                      <p class="card-text text-muted">{{ .Summary }}</p>
+                    {{ end }}
+                    {{ if and site.Params.features.tags.enable site.Params.features.tags.on_card }}
+                      {{ partial "misc/tags.html" .Params.tags }}
+                    {{ end }}
+                    <p class="card-text text-muted">{{ len .RegularPagesRecursive }} {{ i18n "posts" }}</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="container-fluid post-card-holder" id="post-card-holder">
+        {{ $posts := where .RegularPagesRecursive "Layout" "!=" "search" }}
+        {{ $posts = where $posts "Params.hidden" "!=" true }}
+        {{ $numShow := site.Params.features.pagination.maxPostsPerPage | default 12}}
+        {{ $paginator := .Paginate $posts $numShow }}
+        {{ range $paginator.Pages }}
+          {{ if .Layout }}
+            {{/* ignore the search.md file*/}}
+          {{ else }}
+            {{ partial "cards/post.html" . }}
+          {{ end }}
+        {{ end }}
+      </div>
+      <div class="paginator">
+        {{ partial "pagination.html" . }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,12 @@
+name: " "
+nickname: " "
+
+greeting: "Jonathan Saussereau"
+image: "images/logo/emmk2.png"
+
+contactInfo:
+  email: "jsaussereau@bordeaux-inp.fr"
+  github: "jsaussereau"
+
+summary:
+  - Bienvenue

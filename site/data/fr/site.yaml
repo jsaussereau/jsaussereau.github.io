@@ -1,0 +1,34 @@
+copyright: "© 2025 Copyright."
+
+disclaimer: "This theme is under MIT license. So, you can use it for non-commercial, commercial, or private uses. You can modify or distribute the theme without requiring any permission from the theme author. However, the theme author does not provide any warranty or takes any liability for any issue with the theme."
+
+description: "Jonathan Saussereau's personnal website and blog."
+
+customMenus:
+
+# - name: "EEL6-NUMU2"
+#   url: "posts/eel6-numu2/"
+#   hideFromNavbar: false
+#   showOnFooter: true
+
+# - name: "EEL8-NUMU5"
+#   url: "posts/eel8-numu5/"
+#   hideFromNavbar: false
+#   showOnFooter: true
+
+# - name: "EEL8-NUMU5"
+#   url: "https://emmk-73cb1c.gitlab.io/fr/posts/hw_cpu/"
+#   hideFromNavbar: false
+#   showOnFooter: true
+
+# - name: "GitHub"
+#   url: "https://github.com/jsaussereau"
+#   hideFromNavbar: false
+#   showOnFooter: false
+
+# openGraph:
+#   title: John's Blog
+#   type: website
+#   description: Portfolio and personal blog of John Doe.
+#   image: images/author/john.png
+#   url: https://hugo-toha.github.io

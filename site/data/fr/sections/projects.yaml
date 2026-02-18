@@ -1,0 +1,38 @@
+# section information
+section:
+  name: Projets
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+# buttons:
+# - name: All
+#   filter: "all"
+# - name: Professional
+#   filter: "professional"
+# - name: Academic
+#   filter: "academic"
+# - name: Hobby
+#   filter: "hobby"
+
+# your projects
+projects:
+- name: Odatix
+  logo: /images/logo/odatix_logo_white.svg
+  role: Main Contributor
+  timeline: "2022 - Present"
+  repo: https://github.com/jsaussereau/Odatix
+  summary: A flexible multi-cycle RISC-V core designed for design space exploration.
+  tags: ["FPGA", "ASIC", "Design Automation", "Design Space Exploration"]
+
+- name: AsteRISC
+  logo: /images/logo/logo_asterisc.png
+  role: Main Contributor
+  timeline: "2022 - Present"
+  repo: https://github.com/jsaussereau/AsteRISC
+  summary: An open-source design automation toolbox for FPGA/ASIC implementation.
+  tags: ["RISC-V", "Configurable", "CPU", "Design Space Exploration"]

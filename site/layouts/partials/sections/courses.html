@@ -1,0 +1,52 @@
+{{ $sectionID := replace (lower .section.name) " " "-"  }}
+{{ if .section.id }}
+  {{ $sectionID = .section.id }}
+{{ end }}
+
+<div class="container-fluid anchor pb-5" id="{{ $sectionID }}">
+  {{ if not (.section.hideTitle) }}
+    <h1 class="text-center">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h1>
+  {{ else }}
+    <h1 class="text-center" style="display: none">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h1>
+  {{ end }}
+
+  <div class="container">
+    <div class="row justify-content-center">
+      {{ range .courses }}
+        {{ $url := .url }}
+        {{ if not (or (hasPrefix $url "http://") (hasPrefix $url "https://") (hasPrefix $url "//") (hasPrefix $url "mailto:") (hasPrefix $url "#")) }}
+          {{ $url = (printf "/%s" (strings.TrimPrefix "/" $url)) | relLangURL }}
+        {{ end }}
+        <div class="col-sm-12 col-md-6 col-lg-4 p-2">
+          <a class="text-decoration-none" href="{{ $url }}">
+            <div class="card h-100 shadow-sm">
+              {{ if .image }}
+                {{ $imgUrl := .image }}
+                {{ if not (or (hasPrefix $imgUrl "http://") (hasPrefix $imgUrl "https://") (hasPrefix $imgUrl "//")) }}
+                  {{ $img := resources.Get $imgUrl }}
+                  {{ if $img }}
+                    {{ if ne $img.MediaType.SubType "svg" }}
+                      {{ $img = $img.Fit "1000x600" }}
+                    {{ end }}
+                    {{ $imgUrl = $img.RelPermalink }}
+                  {{ else }}
+                    {{ $imgUrl = $imgUrl | relLangURL }}
+                  {{ end }}
+                {{ end }}
+                <img class="card-img-top" src="{{ $imgUrl }}" alt="{{ .name }}" />
+              {{ end }}
+              <div class="card-body">
+                <h5 class="card-title mb-2">{{ .name }}</h5>
+                {{ if .description }}
+                  <p class="card-text text-muted">{{ .description }}</p>
+                {{ end }}
+              </div>
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

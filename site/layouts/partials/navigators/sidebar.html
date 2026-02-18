@@ -1,0 +1,39 @@
+{{ $filterRoot := .filterRoot | default false }}
+{{ $scratch := newScratch }}
+{{ if $filterRoot }}
+  {{ range .menuItems }}
+    {{ if or ($.ctx.HasMenuCurrent $.menuName .)  ($.ctx.IsMenuCurrent $.menuName .) }}
+      {{ $scratch.Set "hasActive" true }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $hasActive := $scratch.Get "hasActive" }}
+
+{{ range .menuItems }}
+  {{ $class:= "" }}
+  {{ $icon:= "plus-circle" }}
+  {{ $isActive := or ($.ctx.HasMenuCurrent $.menuName .)  ($.ctx.IsMenuCurrent $.menuName .) }}
+  {{ if and $filterRoot $hasActive (not $isActive) }}
+    {{ continue }}
+  {{ end }}
+  <!-- If the current menu is the selected menu or it contain the selected menu, set expand icon and set "active" class -->
+  {{ if $isActive }}
+    {{ $icon = "minus-circle"}}
+    {{ $class = "active" }}
+  {{end}}
+  {{ if .HasChildren }}
+    <!-- Add current entry -->
+    <li>
+      <i data-feather="{{ $icon }}"></i><a class="{{$class}} list-link" href="{{ .URL }}"> {{.Name}}</a>
+      <!-- Add sub-tree -->
+      <ul class="{{ $class }}">
+        {{ partial "navigators/sidebar.html" (dict "menuName" $.menuName "menuItems" .Children "ctx" $.ctx "filterRoot" false) }}
+      </ul>
+    </li>
+  {{ else }}
+    <!-- Leaf node. Add menu entry only if page is not marked as hidden -->
+    {{ if not .Page.Params.hidden }}
+    <li><a class="{{$class}} list-link" href="{{ .PageRef | default .URL }}" title="{{ .Name }}">{{.Name}}</a></li>
+    {{ end }}
+  {{ end }}
+{{ end }}

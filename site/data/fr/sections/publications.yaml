@@ -1,0 +1,82 @@
+# section information
+section:
+  name: Publications
+  id: publications
+  enable: true
+  weight: 6
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+# buttons:
+# - name: All
+#   filter: "all"
+# - name: "Machine Learning"
+#   filter: "machinelearning"
+# - name: "Image Processing"
+#   filter: "image-processing"
+# - name: Security
+#   filter: "security"
+
+# your publications
+publications:
+
+- title: "Odatix: An open-source design automation toolbox for FPGA/ASIC implementation"
+  publishedIn:
+    name: SoftwareX
+    date: 2025
+  authors:
+  - name: Jonathan Saussereau
+  - name: Christophe Jego
+  - name: Camille Leroux
+  - name: Jean-Baptiste Begueret
+  paper:
+    summary: "In modern hardware digital design, optimizing performance, resource utilization, and power consumption across different technological targets remains a critical challenge. Indeed, the drive for greater computational power, alongside the need to reduce power consumption, stems from a wide range of applications, from data centers to mobile devices. However, this push encounters significant cost barriers, as the manufacturing cost is closely tied to the technological nodes used and the area for integrated circuits, and is particularly influenced by the amount of available resources for FPGAs. These three criteria are inherently conflicting, as improving one often negatively impacts the others. Finding the best balance between these factors requires significant effort. To address these complexities, design automation tools are increasingly valuable. Odatix is an open-source toolbox designed for the automated implementation and validation of parametrizable digital architectures. It supports synthesis, placement and routing for various FPGA and ASIC tools and simulators. It simplifies key stages such as synthesis, place and route, simulation, and validation, allowing designers to efficiently navigate multiple configurations and identify optimal solutions tailored to specific application constraints. Indeed, Odatix enables comparative analysis of multiple architectural configurations through various metrics such as maximum operating frequency, resource utilization, and power consumption. This paper presents an overview of Odatix’s capabilities and its application to the AsteRISC processor, demonstrating its utility in choosing the best architectural configuration, technological target and EDA tool for specific application constraints."
+    url: https://doi.org/10.1016/j.softx.2024.101970
+  categories: ["eda", "fpga-asic"]
+  tags: ["Design space exploration", "Design automation", "Computer-aided design", "Hardware", "Design flow", "FPGA", "ASIC"]
+- title: "Real-Time Data Processing for Embedded Communicating Systems: A Hardware/Software Co-Design Approach"
+  publishedIn:
+    name: 2024 31st IEEE International Conference on Electronics, Circuits and Systems (ICECS)
+    date: 2024
+  authors:
+  - name: Jonathan Saussereau
+  - name: Christophe Jego
+  - name: Camille Leroux
+  - name: Jean-Baptiste Begueret
+  paper:
+    summary: "Embedded systems typically require the transmission of significant amounts of data to small-scale CPUs for applications such as radar signal processing, image processing, and embedded AI. Ensuring data integrity during transmission is typically managed using Cyclic Redundancy Check (CRC) algorithms. However, achieving real-time CRC calculation and data storage poses challenges, often necessitating large FIFO memories and multiple clock domains. These additional resources involve a greater hardware complexity. This paper presents an approach aimed at synchronizing the CPU frequency with data transmission. This enables having a single clock domain and a reduction of power consumption. Using hardware/software co-design, it is possible to achieve real-time data storage and CRC calculation without data loss and with a low power consumption."
+    url: https://doi.org/10.1109/ICECS61496.2024.10848889
+  categories: ["embedded", "codesign"]
+  tags: ["Embedded systems", "ASIC", "SIMD", "CPU", "Data communication", "Optimization", "System analysis and design","Real-Time", "Hardware", "Software", "Co-Design", "RISC-V", "SPI"]
+
+- title: Design and Implementation of a RISC-V core with a Flexible Pipeline for Design Space Exploration
+  publishedIn:
+    name: 2023 30th IEEE International Conference on Electronics, Circuits and Systems (ICECS)
+    date: 2023
+  authors:
+  - name: Jonathan Saussereau
+  - name: Christophe Jego
+  - name: Camille Leroux
+  - name: Jean-Baptiste Begueret
+  paper:
+    summary: "This paper addresses the need for customizable processor architectures by presenting the design and implementation, on both FPGA and ASIC devices, of a flexible RISC-V in-order pipeline core. The study expands the design space exploration possibilities by introducing a customizable number of stages in the pipeline architecture. The methodology leverages the fundamental building blocks of non-pipelined architectures while incorporating different interconnections and a specific control unit. Through evaluation and analysis, this study provides insights into the impact of pipeline architecture on performance, while also highlighting the advantages of non-pipeline processors in architecture design. The findings contribute to the field by enabling the identification of the optimal architecture, considering application constraints and target technology, in the domain of size-optimized and low-power CPUs."
+    url: https://doi.org/10.1109/ICECS58634.2023.10382774
+  categories: ["risc-v", "architecture"]
+  tags: ["Computer architecture", "CPU", "RISC-V", "RTL", "Pipeline", "Flexibility", "Modularity", "FPGA", "ASIC", "Design Space Exploration", "Embedded systems", "Performance gain"]
+
+- title: "AsteRISC: A Size-Optimized RISC-V Core for Design Space Exploration"
+  publishedIn:
+    name: 2023 IEEE International Symposium on Circuits and Systems (ISCAS)
+    date: 2023
+  authors:
+  - name: Jonathan Saussereau
+  - name: Camille Leroux
+  - name: Jean-Baptiste Begueret
+  - name: Christophe Jego
+  paper:
+    summary: "The RISC-V open source instruction set architecture is a promising solution for applications related to low power embedded systems. This paper presents a configurable RISC-V processor architecture providing a compromise between the number of clock cycles required to execute an instruction, the maximum operating frequency, the resource utilization and the power consumption. This architectural flexibility enables the processor to be adapted to fit application constraints, on either FPGA or ASIC targets."
+    url: https://doi.org/10.1109/ISCAS46773.2023.10181330
+  categories: ["risc-v", "architecture"]
+  tags: ["Computer architecture", "CPU", "RISC-V", "RTL", "Flexibility", "Modularity", "FPGA", "ASIC", "Design Space Exploration", "Embedded systems"]

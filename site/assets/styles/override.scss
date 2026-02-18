@@ -1,0 +1,47 @@
+/* override this file for custom css */
+
+/* you can import bootstrap mixins */
+// @import 'bootstrap/scss/mixins';
+// Example usage
+// .some-class {
+//   @include media-breakpoint-up(sm) {
+//     // Larger than sm: 576px
+//     display: inline;
+//   }
+//   @include media-breakpoint-down(md) {
+//     // Smaller than md: 768px
+//     display: block;
+//   }
+// }
+
+pre {
+	border-radius: 6px;
+	padding: 10px 15px;
+	background-color: #191f2b !important;
+}
+
+pre code {
+	padding: 0 !important;
+}
+
+.copy-code-button {
+    background-color: #263244 !important;
+}
+
+[data-theme="dark"] .admonition-content {
+    background-color: #191f2b !important;
+}
+
+.top-navbar.transparent-navbar {
+	background-color: #1d1d1d6b !important;
+	backdrop-filter: blur(10px);
+}
+
+#homePageBackgroundImageDivStyled {
+	filter: blur(5px);
+}
+
+/* temporarilly disable clicks on tags */
+.tags a {
+	pointer-events: none;
+}
