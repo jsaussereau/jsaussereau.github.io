@@ -26,7 +26,7 @@ projects:
   role: Main Contributor
   timeline: "2022 - Present"
   repo: https://github.com/jsaussereau/Odatix
-  summary: A flexible multi-cycle RISC-V core designed for design space exploration.
+  summary: An open-source design automation toolbox for FPGA/ASIC implementation.
   tags: ["FPGA", "ASIC", "Design Automation", "Design Space Exploration"]
 
 - name: AsteRISC
@@ -34,5 +34,5 @@ projects:
   role: Main Contributor
   timeline: "2022 - Present"
   repo: https://github.com/jsaussereau/AsteRISC
-  summary: An open-source design automation toolbox for FPGA/ASIC implementation.
+  summary: A flexible multi-cycle RISC-V core designed for design space exploration.
   tags: ["RISC-V", "Configurable", "CPU", "Design Space Exploration"]
