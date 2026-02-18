@@ -92,7 +92,8 @@ window.addEventListener('DOMContentLoaded', () => {
         hero: value.item.hero,
         date: value.item.date,
         summary: value.item.summary,
-        link: value.item.permalink,
+        link: value.item.link || value.item.permalink,
+        external: value.item.external,
         tags: adaptTags(),
         categories: value.item.categories,
         snippet

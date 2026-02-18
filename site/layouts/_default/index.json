@@ -2,6 +2,8 @@
 {{- $pages := where .Site.RegularPages "Layout" "!=" "search" -}}
 {{- $pages = where $pages "Params.hidden" "!=" true -}}
 {{- range $pages -}}
-    {{- $.Scratch.Add "index" (dict "title" .Title "hero" (partial "helpers/get-hero.html" .) "date" (.Date.Format "January 2, 2006") "summary" .Summary "tags" .Params.tags "categories" .Params.categories "contents" .Plain "permalink" .Permalink) -}}
+    {{- $link := partial "helpers/get-post-link.html" . -}}
+    {{- $isExternal := (ne $link (.RelPermalink | relLangURL)) -}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "hero" (partial "helpers/get-hero.html" .) "date" (.Date.Format "January 2, 2006") "summary" .Summary "tags" .Params.tags "categories" .Params.categories "contents" .Plain "permalink" .Permalink "link" $link "external" $isExternal) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}
