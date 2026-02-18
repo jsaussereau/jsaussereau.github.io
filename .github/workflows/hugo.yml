@@ -1,0 +1,39 @@
+name: Deploy Hugo site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.155.3'
+          extended: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - run: hugo mod tidy
+        working-directory: site
+
+      - run: hugo mod npm pack
+        working-directory: site
+
+      - run: npm install
+        working-directory: site
+
+      - run: hugo --minify
+        working-directory: site
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site/public
