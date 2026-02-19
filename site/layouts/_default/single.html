@@ -7,9 +7,10 @@
 {{ end }}
 
 {{ define "sidebar" }}
+  {{ $isPost := and .IsPage (eq .Section "posts") }}
   <section class="sidebar-section" id="sidebar-section">
-    <div class="sidebar-holder">
-      <div class="sidebar" id="sidebar">
+    <div class="sidebar-holder{{ if $isPost }} in-post{{ end }}">
+      <div class="sidebar{{ if $isPost }} in-post{{ end }}" id="sidebar">
         <form class="mx-auto" method="get" action="{{ "search" | relLangURL }}">
           <input type="text" name="keyword" value="" placeholder="{{ i18n "search" }}" data-search="" id="search-box" />
         </form>
