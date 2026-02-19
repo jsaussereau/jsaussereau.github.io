@@ -9,7 +9,10 @@
     </div>
     <div class="card-body">
       <a href="{{ $postLink }}" class="post-card-link"{{ if $isExternal }} target="_blank" rel="noopener"{{ end }}>
-        <h5 class="card-title">{{ .Title }}</h5>
+        {{ if $isExternal }}
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        {{ end }}
+        <h5 class="card-title" style="display: inline;">{{ .Title }}</h5>
         <p class="card-text post-summary">{{ .Summary | plainify }}</p>
       </a>
       {{ if and site.Params.features.tags.enable site.Params.features.tags.on_card }}
