@@ -23,13 +23,13 @@ languages:
   fr:
     languageCode: "fr"
     languageName: "Français"
-    title: "Jonathan Saussereau"
+    title: "Accueil"
     weight: 1
 #    baseURL: ""
   # en:
   #   languageCode: "en"
   #   languageName: "English"
-  #   title: "Jonathan Saussereau"
+  #   title: "Home"
   #   weight: 2
 #    baseURL: ""
 
