@@ -1,7 +1,7 @@
 ---
 title: "12. Configuration de l'horloge"
 date: "2026-02-11T00:00:00+02:00"
-description: ""
+summary: "Implémentation de la configuration de l'horloge avec les boutons."
 menu:
   sidebar:
     name: "Configuration de l'horloge"

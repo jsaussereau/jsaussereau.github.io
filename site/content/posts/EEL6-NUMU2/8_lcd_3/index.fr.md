@@ -1,7 +1,7 @@
 ---
 title: "08. LCD Etape #3"
 date: "2026-02-11T00:00:00+02:00"
-description: ""
+summary: "Développemment de la bibliothèque LCD - étape 3 : développement des fonctions correspondant aux différentes commandes."
 menu:
   sidebar:
     name: "LCD Etape #3"

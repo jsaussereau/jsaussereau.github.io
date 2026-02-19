@@ -1,7 +1,7 @@
 ---
 title: "11. Affichage de l'horloge"
 date: "2026-02-11T00:00:00+02:00"
-description: ""
+summary: "Implémentation de l'affichage d'une horloge numérique sur l'écran LCD."
 menu:
   sidebar:
     name: "Affichage de l'horloge"
@@ -19,7 +19,7 @@ hidden: false
 
 <!-- <h2 id="aide_horloge"> 4. Affichage de l'horloge sur l'écran LCD </h2> -->
 
-Maintenant que l'on peut afficher ce que l'on veut sur écran, l'objectif est d'y afficher l'horloge.
+Maintenant que l'on peut afficher ce que l'on veut sur écran, l'objectif est d'y afficher une horloge numérique.
 
 ## Génération des heures, minutes et secondes
 

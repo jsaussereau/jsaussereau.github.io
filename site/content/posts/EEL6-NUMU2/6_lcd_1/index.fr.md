@@ -1,7 +1,7 @@
 ---
 title: "06. LCD Etape #1"
 date: "2026-02-11T00:00:00+02:00"
-description: ""
+summary: "Développemment de la bibliothèque LCD - étape 1 : simplification des accès."
 menu:
   sidebar:
     name: "LCD Etape #1"

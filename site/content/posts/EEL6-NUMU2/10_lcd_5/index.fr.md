@@ -1,7 +1,7 @@
 ---
 title: "10. LCD Etape #5"
 date: "2026-02-11T00:00:00+02:00"
-description: ""
+summary: "Développemment de la bibliothèque LCD - étape 5 : développement des fonctions utilisateur restantes."
 menu:
   sidebar:
     name: "LCD Etape #5"
