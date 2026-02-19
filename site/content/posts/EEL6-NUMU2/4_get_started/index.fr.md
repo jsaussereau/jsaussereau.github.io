@@ -53,8 +53,8 @@ Un projet déjà configuré est disponible dans `work`. Pour l'ouvrir :
 
 Plusieurs fichiers sont déjà créés dans le dossier `src` (voir "Header Files" et "Source Files" dans MPLABX) :
 - `main.c` : Fichier principal. C'est ici que se trouve la fonction main et la fonction d'interruption.
-- `timer.c` et `timer.h` : Fichiers où développer [la configuration du timer](#aide_led), [la mise en forme](#aide_horloge) et [la configuration](#aide_conf_horloge) de l'horloge.
-- `lib_LCD.c` et `lib_LCD.h` : Fichiers où développer [la bibliothèque LCD](#aide_lib_lcd).
+- `timer.c` et `timer.h` : Fichiers où développer [la configuration du timer](/fr/posts/eel6-numu2/5_led/), [la mise en forme](/fr/posts/eel6-numu2/11_horloge/) et [la configuration](/fr/posts/eel6-numu2/12_configuration/) de l'horloge.
+- `lib_LCD.c` et `lib_LCD.h` : Fichiers où développer [la bibliothèque LCD](/fr/posts/eel6-numu2/6_lcd_1/).
 	
 > [!WARNING]
 > Pensez à **faire valider votre travail à chaque partie**, avant de passer aux étapes suivantes.
