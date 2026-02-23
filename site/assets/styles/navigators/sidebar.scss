@@ -130,7 +130,7 @@
 
   @include media('<=ultra-large') {
     flex: 15%;
-    max-width: 15%;
+    // max-width: 15%;
 
     .sidebar-holder {
       max-width: 100%;

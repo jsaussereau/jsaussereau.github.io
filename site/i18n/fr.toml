@@ -8,6 +8,9 @@ other = "Articles"
 [courses]
 other = "Enseignements"
 
+[all_courses]
+other = "Tous les enseignements"
+
 [toc_heading]
 other = "Table des matières"
 
