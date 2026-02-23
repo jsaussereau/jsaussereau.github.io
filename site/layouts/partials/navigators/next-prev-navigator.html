@@ -2,11 +2,29 @@
 {{ $prevPage := "" }}
 {{ $nextPage := "" }}
 
+<!-- Get the parent category/section of the current page -->
+{{ $parent := "" }}
+{{ if isset .Params.menu "sidebar" }}
+  {{ $parent = .Params.menu.sidebar.parent }}
+{{ end }}
+
 <!-- List all the pages. It uses the sidebar menu to discover the page order. -->
 {{ $pages := slice }}
 
 {{ if isset site.Menus "sidebar" }}
-  {{ $pages = partial "helpers/get-pages.html" site.Menus.sidebar }}
+  {{ $allPages := partial "helpers/get-pages.html" site.Menus.sidebar }}
+  <!-- Filter pages to only include those with the same parent -->
+  {{ if $parent }}
+    {{ range $allPages }}
+      {{ if isset .Params.menu "sidebar" }}
+        {{ if eq .Params.menu.sidebar.parent $parent }}
+          {{ $pages = $pages | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ $pages = $allPages }}
+  {{ end }}
 {{ end }}
 
 <!-- Now, find the current page index in the pages list. Then, find previous page and next page. -->
