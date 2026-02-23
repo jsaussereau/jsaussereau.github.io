@@ -1,4 +1,63 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Accueil – Cours</title><link>https://jsaussereau.github.io/fr/posts/</link><description>Recent content in Cours on Accueil</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jsaussereau.github.io/fr/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Installer Odatix à l'ENSEIRB</title><link>https://jsaussereau.github.io/fr/posts/outils_asic/install_odatix/</link><pubDate>Tue, 17 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/outils_asic/install_odatix/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Accueil – Cours</title><link>https://jsaussereau.github.io/fr/posts/</link><description>Recent content in Cours on Accueil</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jsaussereau.github.io/fr/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>1. Introduction</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/1_intro/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/1_intro/</guid><description>
+&lt;p&gt;Ce projet vise à concevoir un système embarqué basé sur un microcontrôleur PIC16F877A. L&amp;rsquo;objectif est d&amp;rsquo;implémenter horloge une horloge configurable affichée sur un afficheur LCD. Le cahier des charges complet se trouve dans la &lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/"&gt;section suivante&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Compétences&lt;span class="hx:absolute hx:-mt-20" id="compétences"&gt;&lt;/span&gt;
+&lt;a href="#comp%c3%a9tences" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ce projet a pour objectif de développer les compétences suivantes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;la programmation par interruptions&lt;/li&gt;
+&lt;li&gt;la configuration de périphériques&lt;/li&gt;
+&lt;li&gt;la structuration d&amp;rsquo;un code&lt;/li&gt;
+&lt;li&gt;la mise en place de couches d&amp;rsquo;abstraction&lt;/li&gt;
+&lt;li&gt;la mise à profit d&amp;rsquo;une documentation technique&lt;/li&gt;
+&lt;/ul&gt;
+&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
+&lt;div class="admonition caution"&gt;
+&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/&gt;&lt;/svg&gt;
+&lt;span&gt;Attention&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+&lt;p&gt;L’utilisation d’IA générative &lt;strong&gt;n’est pas autorisée&lt;/strong&gt; pour ce cours. Développer par vous‑même les compétences ci‑dessus est l&amp;rsquo;objectif de ce module. Cela vous permettra d’utiliser plus tard les outils d’IA avec beaucoup plus d’efficacité, de discernement et de recul. Même si la tentation est grande, &lt;strong&gt;merci de jouer le jeu&lt;/strong&gt; 🙂 !&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>2. Cahier des charges</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</guid><description>
+&lt;h2&gt;Objectifs principaux&lt;span class="hx:absolute hx:-mt-20" id="objectifs-principaux"&gt;&lt;/span&gt;
+&lt;a href="#objectifs-principaux" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Faire clignoter une des LED à la fréquence 0.5 Hz (1 changement d&amp;rsquo;état toutes les secondes) à partir d&amp;rsquo;&lt;strong&gt;interruptions&lt;/strong&gt; sur le Timer1. Cette fonctionnalité doit être maintenue même après le développement des étapes suivantes. (&lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/"&gt;Aide&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Développer une bibliothèque pour l&amp;rsquo;afficheur LCD (&lt;code&gt;lib_LCD.h&lt;/code&gt; et &lt;code&gt;lib_LCD.c&lt;/code&gt;) proposant à l&amp;rsquo;utilisateur au minimum les fonctionnalités suivantes (&lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/"&gt;Aide&lt;/a&gt;) :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lcd_init&lt;/code&gt; : Initialisation générale de l&amp;rsquo;afficheur en mode 4 bits&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_putch&lt;/code&gt; : Ecriture d&amp;rsquo;un caractère sur l&amp;rsquo;afficheur&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_puts&lt;/code&gt; : Ecriture d&amp;rsquo;une chaîne de caractères sur l&amp;rsquo;afficheur&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_pos&lt;/code&gt; : Positionnement du curseur en (x,y) - origine en (1,1)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_home&lt;/code&gt; : Cursor home : positionnement du curseur (1,1)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcd_clear&lt;/code&gt; : Effacement de l&amp;rsquo;écran et cursor home&lt;br&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Affichage sur l&amp;rsquo;écran LCD d&amp;rsquo;une horloge au format &lt;code&gt;HH:MM:SS&lt;/code&gt; qui s&amp;rsquo;incrémente à chaque seconde (via le Timer1). (&lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/11_horloge/"&gt;Aide&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pouvoir configurer l&amp;rsquo;horloge à l&amp;rsquo;aide des boutons poussoir S2 et S3 (&lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/12_configuration/"&gt;Aide&lt;/a&gt;) :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Un appui prolongé d&amp;rsquo;au moins 2 s sur S2 fera clignoter les heures, celles-ci s&amp;rsquo;incrémenteront à chaque appui sur S3, ou automatiquement (f ≈ 5 Hz) en cas d&amp;rsquo;appui maintenu au-delà de 2 s.&lt;/li&gt;
+&lt;li&gt;Un nouvel appui sur S2 permettra un réglage des minutes selon la même procédure.&lt;/li&gt;
+&lt;li&gt;Éventuellement, un nouvel appui sur S2 permettra un réglage des secondes selon la même procédure.&lt;/li&gt;
+&lt;li&gt;Un dernier appui sur S2 fera quitter le mode &amp;ldquo;réglage&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Objectifs Secondaires&lt;span class="hx:absolute hx:-mt-20" id="objectifs-secondaires"&gt;&lt;/span&gt;
+&lt;a href="#objectifs-secondaires" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h4&gt;(Au choix et si le temps le permet)&lt;span class="hx:absolute hx:-mt-20" id="au-choix-et-si-le-temps-le-permet"&gt;&lt;/span&gt;
+&lt;a href="#au-choix-et-si-le-temps-le-permet" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Utilisation du potentiomètre pour régler les heures/minutes/secondes.&lt;/li&gt;
+&lt;li&gt;Ajout de caractères personnalisés sur l&amp;rsquo;afficheur.&lt;/li&gt;
+&lt;li&gt;Récupération via le protocole I²C de la température du capteur TC74.&lt;/li&gt;
+&lt;li&gt;Ajout d&amp;rsquo;une alarme quand l&amp;rsquo;horloge atteint une heure configurée, avec une sonnerie ou une mélodie sur le buzzer P1.&lt;/li&gt;
+&lt;li&gt;Utilisation de l&amp;rsquo;écran comme un afficheur à décalage (comme dans les bus/trams).&lt;/li&gt;
+&lt;li&gt;Toute autre idée que vous aimeriez développer avec les éléments à disposition sur la carte.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Installer Odatix à l'ENSEIRB</title><link>https://jsaussereau.github.io/fr/posts/outils_asic/install_odatix/</link><pubDate>Tue, 17 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/outils_asic/install_odatix/</guid><description>
 &lt;p&gt;Odatix est un outil conçu au Laboratoire IMS pour faciliter l&amp;rsquo;implémentation et la validation de designs numériques configurables à travers de divers outils FPGA et ASIC (dont Vivado et Design Compiler).&lt;/p&gt;
 &lt;p&gt;Odatix permet de :&lt;/p&gt;
 &lt;ul&gt;
@@ -86,66 +145,7 @@ title="Copier le code"
 &lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
 &lt;/button&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Travaux pratiques d'architecture des processeurs II</title><link>https://jsaussereau.github.io/fr/posts/eel8-numu5/1_intro/</link><pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel8-numu5/1_intro/</guid><description/></item><item><title>01. Introduction</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/1_intro/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/1_intro/</guid><description>
-&lt;p&gt;Ce projet vise à concevoir un système embarqué basé sur un microcontrôleur PIC16F877A. L&amp;rsquo;objectif est d&amp;rsquo;implémenter horloge une horloge configurable affichée sur un afficheur LCD. Le cahier des charges complet se trouve dans la &lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/"&gt;section suivante&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Compétences&lt;span class="hx:absolute hx:-mt-20" id="compétences"&gt;&lt;/span&gt;
-&lt;a href="#comp%c3%a9tences" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ce projet a pour objectif de développer les compétences suivantes:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;la programmation par interruptions&lt;/li&gt;
-&lt;li&gt;la configuration de périphériques&lt;/li&gt;
-&lt;li&gt;la structuration d&amp;rsquo;un code&lt;/li&gt;
-&lt;li&gt;la mise en place de couches d&amp;rsquo;abstraction&lt;/li&gt;
-&lt;li&gt;la mise à profit d&amp;rsquo;une documentation technique&lt;/li&gt;
-&lt;/ul&gt;
-&lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
-&lt;div class="admonition caution"&gt;
-&lt;div class="admonition-header"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/&gt;&lt;/svg&gt;
-&lt;span&gt;Attention&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
-&lt;p&gt;L’utilisation d’IA générative &lt;strong&gt;n’est pas autorisée&lt;/strong&gt; pour ce cours. Développer par vous‑même les compétences ci‑dessus est l&amp;rsquo;objectif de ce module. Cela vous permettra d’utiliser plus tard les outils d’IA avec beaucoup plus d’efficacité, de discernement et de recul. Même si la tentation est grande, &lt;strong&gt;merci de jouer le jeu&lt;/strong&gt; 🙂 !&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>02. Cahier des charges</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/2_cahier_des_charges/</guid><description>
-&lt;h2&gt;Objectifs principaux&lt;span class="hx:absolute hx:-mt-20" id="objectifs-principaux"&gt;&lt;/span&gt;
-&lt;a href="#objectifs-principaux" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Faire clignoter une des LED à la fréquence 0.5 Hz (1 changement d&amp;rsquo;état toutes les secondes) à partir d&amp;rsquo;&lt;strong&gt;interruptions&lt;/strong&gt; sur le Timer1. Cette fonctionnalité doit être maintenue même après le développement des étapes suivantes. (&lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/"&gt;Aide&lt;/a&gt;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Développer une bibliothèque pour l&amp;rsquo;afficheur LCD (&lt;code&gt;lib_LCD.h&lt;/code&gt; et &lt;code&gt;lib_LCD.c&lt;/code&gt;) proposant à l&amp;rsquo;utilisateur au minimum les fonctionnalités suivantes (&lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/"&gt;Aide&lt;/a&gt;) :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;lcd_init&lt;/code&gt; : Initialisation générale de l&amp;rsquo;afficheur en mode 4 bits&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lcd_putch&lt;/code&gt; : Ecriture d&amp;rsquo;un caractère sur l&amp;rsquo;afficheur&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lcd_puts&lt;/code&gt; : Ecriture d&amp;rsquo;une chaîne de caractères sur l&amp;rsquo;afficheur&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lcd_pos&lt;/code&gt; : Positionnement du curseur en (x,y) - origine en (1,1)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lcd_home&lt;/code&gt; : Cursor home : positionnement du curseur (1,1)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lcd_clear&lt;/code&gt; : Effacement de l&amp;rsquo;écran et cursor home&lt;br&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Affichage sur l&amp;rsquo;écran LCD d&amp;rsquo;une horloge au format &lt;code&gt;HH:MM:SS&lt;/code&gt; qui s&amp;rsquo;incrémente à chaque seconde (via le Timer1). (&lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/11_horloge/"&gt;Aide&lt;/a&gt;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Pouvoir configurer l&amp;rsquo;horloge à l&amp;rsquo;aide des boutons poussoir S2 et S3 (&lt;a href="https://jsaussereau.github.io/fr/posts/eel6-numu2/12_configuration/"&gt;Aide&lt;/a&gt;) :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Un appui prolongé d&amp;rsquo;au moins 2 s sur S2 fera clignoter les heures, celles-ci s&amp;rsquo;incrémenteront à chaque appui sur S3, ou automatiquement (f ≈ 5 Hz) en cas d&amp;rsquo;appui maintenu au-delà de 2 s.&lt;/li&gt;
-&lt;li&gt;Un nouvel appui sur S2 permettra un réglage des minutes selon la même procédure.&lt;/li&gt;
-&lt;li&gt;Éventuellement, un nouvel appui sur S2 permettra un réglage des secondes selon la même procédure.&lt;/li&gt;
-&lt;li&gt;Un dernier appui sur S2 fera quitter le mode &amp;ldquo;réglage&amp;rdquo;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Objectifs Secondaires&lt;span class="hx:absolute hx:-mt-20" id="objectifs-secondaires"&gt;&lt;/span&gt;
-&lt;a href="#objectifs-secondaires" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h4&gt;(Au choix et si le temps le permet)&lt;span class="hx:absolute hx:-mt-20" id="au-choix-et-si-le-temps-le-permet"&gt;&lt;/span&gt;
-&lt;a href="#au-choix-et-si-le-temps-le-permet" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Utilisation du potentiomètre pour régler les heures/minutes/secondes.&lt;/li&gt;
-&lt;li&gt;Ajout de caractères personnalisés sur l&amp;rsquo;afficheur.&lt;/li&gt;
-&lt;li&gt;Récupération via le protocole I²C de la température du capteur TC74.&lt;/li&gt;
-&lt;li&gt;Ajout d&amp;rsquo;une alarme quand l&amp;rsquo;horloge atteint une heure configurée, avec une sonnerie ou une mélodie sur le buzzer P1.&lt;/li&gt;
-&lt;li&gt;Utilisation de l&amp;rsquo;écran comme un afficheur à décalage (comme dans les bus/trams).&lt;/li&gt;
-&lt;li&gt;Toute autre idée que vous aimeriez développer avec les éléments à disposition sur la carte.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>03. Evaluation</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/3_evaluation/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/3_evaluation/</guid><description>
+&lt;/div&gt;</description></item><item><title>3. Evaluation</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/3_evaluation/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/3_evaluation/</guid><description>
 &lt;h2&gt;Modalités de rendu&lt;span class="hx:absolute hx:-mt-20" id="modalités-de-rendu"&gt;&lt;/span&gt;
 &lt;a href="#modalit%c3%a9s-de-rendu" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Le rendu se fait par mail avec comme objet &lt;code&gt;[EN111] NOM1 NOM2&lt;/code&gt;, avant le 25 mai 23:59.&lt;/p&gt;
 &lt;ul&gt;
@@ -217,7 +217,7 @@ attribution d’une note de zéro au travail incriminé, exclusion de l’établ
 En matière de propriété intellectuelle, le plagiat constitue un délit.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>04. Get started</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/4_get_started/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/4_get_started/</guid><description>
+&lt;/div&gt;</description></item><item><title>4. Get started</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/4_get_started/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/4_get_started/</guid><description>
 &lt;!-- &lt;h2 id="aide_get_started"&gt; 1. Get started 🏁&lt;/h2&gt; --&gt;
 &lt;h2&gt;Téléchargemment du répertoire&lt;span class="hx:absolute hx:-mt-20" id="téléchargemment-du-répertoire"&gt;&lt;/span&gt;
 &lt;a href="#t%c3%a9l%c3%a9chargemment-du-r%c3%a9pertoire" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -272,7 +272,7 @@ title="Copier le code"
 &lt;div class="admonition-content"&gt;
 &lt;p&gt;Pensez à &lt;strong&gt;faire valider votre travail à chaque partie&lt;/strong&gt;, avant de passer aux étapes suivantes.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>05. Clignotement de la LED</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</guid><description>
+&lt;/div&gt;</description></item><item><title>5. Clignotement de la LED</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/5_led/</guid><description>
 &lt;!-- &lt;h2 id="aide_led"&gt; 2. Clignotement de la LED à la fréquence 0.5 Hz &lt;/h2&gt; --&gt;
 &lt;p&gt;Le tout premier objectif est de faire clignoter une des LED à la fréquence 0.5 Hz (1 changement d’état toutes les secondes) à partir d’interruptions sur le Timer1.&lt;/p&gt;
 &lt;h3&gt;Choix de la stratégie&lt;span class="hx:absolute hx:-mt-20" id="choix-de-la-stratégie"&gt;&lt;/span&gt;
@@ -405,7 +405,7 @@ Il faut aussi penser à bien mettre une valeur à comparer.&lt;/p&gt;
 &lt;div class="admonition-content"&gt;
 &lt;p&gt;Le tableau à la page 68 de la datasheet &lt;em&gt;DS_PIC16F877A&lt;/em&gt; met en évidence tous les champs liés au module CCP. Pour être sûr de l&amp;rsquo;avoir bien configuré, il faut être sûr de comprendre quel est le rôle de chacun de ces champs et être sûr d&amp;rsquo;avoir assigné la bonne valeur aux champs qui en ont besoin.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>06. LCD Etape #1</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/</guid><description>
+&lt;/div&gt;</description></item><item><title>6. LCD Etape #1</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/6_lcd_1/</guid><description>
 &lt;p&gt;L&amp;rsquo;objectif est désormais de développer une bibliothèque pour l&amp;rsquo;afficheur LCD. Pour cela nous allons procéder par étape, en ajoutant des niveaux d&amp;rsquo;abstraction au fur et à mesure.&lt;/p&gt;
 &lt;!-- &lt;h2 id="aide_lib_lcd"&gt; 3. Développement de la bibliothèque pour l'afficheur LCD &lt;/h2&gt; --&gt;
 &lt;h3&gt;Documentation&lt;span class="hx:absolute hx:-mt-20" id="documentation"&gt;&lt;/span&gt;
@@ -543,7 +543,7 @@ title="Copier le code"
 &lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
 &lt;/button&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>07. LCD Etape #2</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/7_lcd_2/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/7_lcd_2/</guid><description>
+&lt;/div&gt;</description></item><item><title>7. LCD Etape #2</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/7_lcd_2/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/7_lcd_2/</guid><description>
 &lt;h3&gt;&lt;ins&gt;Étape 2&lt;/ins&gt; : Développement d&amp;rsquo;une fonction d&amp;rsquo;envoi de n&amp;rsquo;importe quelle commande&lt;span class="hx:absolute hx:-mt-20" id="étape-2--développement-dune-fonction-denvoi-de-nimporte-quelle-commande"&gt;&lt;/span&gt;
 &lt;a href="#%c3%a9tape-2--d%c3%a9veloppement-dune-fonction-denvoi-de-nimporte-quelle-commande" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Maintenant que les accès aux différents champs associés au module LCD sont plus simples à utiliser, la prochaine étape est de développer des fonctions qui pourront être utilisées par toutes les fonctions qui ont besoin d&amp;rsquo;envoyer une commande au module.&lt;/p&gt;
 &lt;p&gt;La datasheet du module LCD &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt; nous apprend que l&amp;rsquo;on peut câbler ce module LCD à un microcontrôleur sur 8 bits (DB7-DB0) ou 4 bits (DB7-DB4)&lt;/p&gt;
@@ -669,7 +669,7 @@ title="Copier le code"
 &lt;p&gt;Pour savoir si la précédente commande a fini d&amp;rsquo;être exécutée, il est possible de lire le bit &amp;lsquo;busy&amp;rsquo;, avec la commande correspondante.
 Cependant, dans un premier temps, par souci de simplicité, on peut se contenter d&amp;rsquo;une temporisation. Sa durée doit à être supérieure au temps d&amp;rsquo;exécution de la commande la plus longue (cf. &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt;).&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>08. LCD Etape #3</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/8_lcd_3/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/8_lcd_3/</guid><description>
+&lt;/div&gt;</description></item><item><title>8. LCD Etape #3</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/8_lcd_3/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/8_lcd_3/</guid><description>
 &lt;h3&gt;&lt;ins&gt;Étape 3&lt;/ins&gt; : Développement des fonctions correspondant aux différentes commandes&lt;span class="hx:absolute hx:-mt-20" id="étape-3--développement-des-fonctions-correspondant-aux-différentes-commandes"&gt;&lt;/span&gt;
 &lt;a href="#%c3%a9tape-3--d%c3%a9veloppement-des-fonctions-correspondant-aux-diff%c3%a9rentes-commandes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;La page 7 de la datasheet du module LCD &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt; liste toutes les commandes proposées par le module. Avant de chercher à développer la fonction d&amp;rsquo;initialisation, il est préférable de développer des fonctions correspondant à ces commandes.&lt;/p&gt;
 &lt;p&gt;Notamment les suivantes :&lt;/p&gt;
@@ -697,7 +697,7 @@ Ce sont justement les paramètres de la foncton &lt;code&gt;lcd_write_instr_8bit
 &lt;div class="admonition-content"&gt;
 &lt;p&gt;Pour générer la donnée de la commande avec les bons arguments, il sera nécessaire pour certaines fonctions d&amp;rsquo;effectuer des &lt;a href="https://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_9___Manipulation_binaire.pdf" target="_blank" rel="noopener"&gt;opérations binaires&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>09. LCD Etape #4</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/9_lcd_4/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/9_lcd_4/</guid><description>
+&lt;/div&gt;</description></item><item><title>9. LCD Etape #4</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/9_lcd_4/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/9_lcd_4/</guid><description>
 &lt;h3&gt;&lt;ins&gt;Étape 4&lt;/ins&gt; : Développement de la fonction d&amp;rsquo;initialisation&lt;span class="hx:absolute hx:-mt-20" id="étape-4--développement-de-la-fonction-dinitialisation"&gt;&lt;/span&gt;
 &lt;a href="#%c3%a9tape-4--d%c3%a9veloppement-de-la-fonction-dinitialisation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;La page 11 de la datasheet du module LCD &lt;em&gt;DS_Afficheurs_Sunplus&lt;/em&gt; détaille la procédure d&amp;rsquo;initialisation du module.&lt;/p&gt;
 &lt;link rel="stylesheet" href="https://jsaussereau.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous"&gt;
@@ -729,7 +729,7 @@ Ainsi, on remarque qu&amp;rsquo;une grande partie de la procédure d&amp;rsquo;i
 &lt;p&gt;À ce stade on peut tester si tout fonctionne. Pour cela, on peut ajouter un appel à &lt;code&gt;lcd_display_control&lt;/code&gt; avec les bons paramètres pour allumer l&amp;rsquo;écran et faire clignoter le curseur.
 Ainsi, si après avoir téléversé le programme sur la carte, le curseur clignote sur l&amp;rsquo;écran, les étapes précédentes sont validées !&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>10. LCD Etape #5</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/10_lcd_5/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/10_lcd_5/</guid><description>
+&lt;/div&gt;</description></item><item><title>Travaux pratiques d'architecture des processeurs II</title><link>https://jsaussereau.github.io/fr/posts/eel8-numu5/1_intro/</link><pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel8-numu5/1_intro/</guid><description/></item><item><title>10. LCD Etape #5</title><link>https://jsaussereau.github.io/fr/posts/eel6-numu2/10_lcd_5/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0200</pubDate><guid>https://jsaussereau.github.io/fr/posts/eel6-numu2/10_lcd_5/</guid><description>
 &lt;h3&gt;&lt;ins&gt;Étape 5&lt;/ins&gt; : Développement des fonctions utilisateur restantes&lt;span class="hx:absolute hx:-mt-20" id="étape-5--développement-des-fonctions-utilisateur-restantes"&gt;&lt;/span&gt;
 &lt;a href="#%c3%a9tape-5--d%c3%a9veloppement-des-fonctions-utilisateur-restantes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Il ne manque alors plus qu&amp;rsquo;à réaliser les fonctions :&lt;/p&gt;
 &lt;ul&gt;
