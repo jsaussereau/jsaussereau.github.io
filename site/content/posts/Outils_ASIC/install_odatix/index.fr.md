@@ -51,7 +51,7 @@ pip install odatix
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> $HOME/.bashrc
 ```
 
-## Ajoute de Design Compiler au `PATH`
+## Ajout de Design Compiler au `PATH`
 
 Pour faciliter l'utilisation de Design Compiler et permettre à Odatix de l'appeler, nous allons aussi ajouter à la variable d'environnement `PATH` le chemin vers les binaires de Synopsys Design Compiler, ainsi que la variable d'environnement nécessaire pour la licence :
 
