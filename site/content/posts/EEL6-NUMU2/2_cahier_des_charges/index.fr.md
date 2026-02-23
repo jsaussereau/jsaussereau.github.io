@@ -1,7 +1,8 @@
 ---
-title: "02. Cahier des charges"
+title: "2. Cahier des charges"
 date: "2026-02-11T00:00:00+02:00"
 summary: "Liste des objectifs principaux (obligatoires) et secondaires (bonus) du projet."
+weight: 2
 menu:
   sidebar:
     name: "Cahier des charges"

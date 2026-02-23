@@ -1,7 +1,8 @@
 ---
-title: "07. LCD Etape #2"
+title: "7. LCD Etape #2"
 date: "2026-02-11T00:00:00+02:00"
 summary: "Développemment de la bibliothèque LCD - étape 2 : développement d'une fonction d'envoi de n'importe quelle commande."
+weight: 7
 menu:
   sidebar:
     name: "LCD Etape #2"

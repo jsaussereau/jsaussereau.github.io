@@ -1,7 +1,8 @@
 ---
-title: "09. LCD Etape #4"
+title: "9. LCD Etape #4"
 date: "2026-02-11T00:00:00+02:00"
 summary: "Développemment de la bibliothèque LCD - étape 4 : développement de la fonction d'initialisation."
+weight: 9
 menu:
   sidebar:
     name: "LCD Etape #4"

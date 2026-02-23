@@ -1,7 +1,8 @@
 ---
-title: "01. Introduction"
+title: "1. Introduction"
 date: "2026-02-11T00:00:00+02:00"
 summary: "Introduction du projet et liste des compétences à développer."
+weight: 1
 menu:
   sidebar:
     name: "Introduction"

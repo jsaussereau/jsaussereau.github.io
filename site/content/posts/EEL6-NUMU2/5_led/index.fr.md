@@ -1,7 +1,8 @@
 ---
-title: "05. Clignotement de la LED"
+title: "5. Clignotement de la LED"
 date: "2026-02-11T00:00:00+02:00"
 summary: "Implémentation du clignotemment d'une LED à la fréquence 0.5 Hz à partir d’interruptions sur le Timer1."
+weight: 5
 menu:
   sidebar:
     name: "Clignotement de la LED"

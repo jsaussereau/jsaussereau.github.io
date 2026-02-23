@@ -1,7 +1,8 @@
 ---
-title: "04. Get started"
+title: "4. Get started"
 date: "2026-02-11T00:00:00+02:00"
 summary: "Téléchargement des fichiers nécessaires au déroulement du projet et description de l'organisation du répertoire."
+weight: 4
 menu:
   sidebar:
     name: "Get started"

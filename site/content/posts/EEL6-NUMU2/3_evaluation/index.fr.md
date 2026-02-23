@@ -1,7 +1,8 @@
 ---
-title: "03. Evaluation"
+title: "3. Evaluation"
 date: "2026-02-11T00:00:00+02:00"
 summary: "Modalités d'évaluation et de remise des travaux."
+weight: 3
 menu:
   sidebar:
     name: "Evaluation"
