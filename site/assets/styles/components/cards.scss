@@ -79,7 +79,7 @@
 
     .card-body {
       padding: 1.25rem !important;
-      padding-bottom: 0 !important;
+      // padding-bottom: 0 !important;
 
       .post-summary {
         overflow: hidden;
@@ -93,7 +93,7 @@
       }
     }
     .card-footer {
-      margin-top: auto;
+      margin-top: -1.25rem;
 
       span {
         font-size: 10pt;
