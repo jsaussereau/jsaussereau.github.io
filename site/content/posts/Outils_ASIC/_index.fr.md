@@ -1,0 +1,20 @@
+---
+title: "Outils ASIC à l'ENSEIRB"
+date: "2026-02-17T00:00:00+02:00"
+description: ""
+weight: 1000
+tags:
+  - "ENSEIRB-MATMECA"
+  - "Electronique"
+  - "SEE"
+  - "Tuto"
+menu:
+  sidebar:
+    name: "Outils ASIC à l'ENSEIRB"
+    identifier: "asic_tools"
+    weight: 1000
+hero: /images/courses/Outils_ASIC-large.png
+mermaid: true
+draft: false
+hidden: false
+---
