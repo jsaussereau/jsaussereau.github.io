@@ -32,6 +32,7 @@
   <div class="content container-fluid" id="content">
     {{ if eq .RelPermalink ("/posts/" | relLangURL) }}
       {{ $sections := .Sections }}
+      {{ $sections = sort $sections "Weight" }}
       <div class="container-fluid post-card-holder" id="post-card-holder">
         {{ if gt (len $sections) 0 }}
           {{ range $sections }}
