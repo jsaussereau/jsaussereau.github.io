@@ -13,6 +13,7 @@ author:
   name: "Jonathan Saussereau"
 #  image: "/images/"
 hero: "EEL6-NUMU2-large-lcd_etape3.png"
+hero_dark: "EEL6-NUMU2-large-lcd_etape3-dark.png"
 mermaid: true
 draft: false
 hidden: false

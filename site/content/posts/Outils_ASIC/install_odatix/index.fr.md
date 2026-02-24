@@ -15,6 +15,7 @@ menu:
     identifier: "install_odatix"
     weight: 3
 hero: install_odatix-large.png
+hero_dark: install_odatix-large-dark.png
 mermaid: true
 draft: false
 hidden: false

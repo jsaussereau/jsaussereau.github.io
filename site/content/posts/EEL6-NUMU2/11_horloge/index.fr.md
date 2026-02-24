@@ -12,6 +12,7 @@ author:
   name: "Jonathan Saussereau"
 #  image: "/images/"
 hero: "EEL6-NUMU2-large-horloge.png"
+hero_dark: "EEL6-NUMU2-large-horloge-dark.png"
 mermaid: true
 draft: false
 hidden: false

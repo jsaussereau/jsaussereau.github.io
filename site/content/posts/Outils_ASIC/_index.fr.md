@@ -14,6 +14,7 @@ menu:
     identifier: "asic_tools"
     weight: 1000
 hero: /images/courses/Outils_ASIC-large.png
+hero_dark: /images/courses/Outils_ASIC-large-dark.png
 mermaid: true
 draft: false
 hidden: false

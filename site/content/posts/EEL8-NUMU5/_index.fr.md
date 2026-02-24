@@ -13,6 +13,7 @@ menu:
     identifier: "EEL8-NUMU5"
     weight: 1
 hero: /images/courses/EEL8-NUMU5-large.png
+hero_dark: /images/courses/EEL8-NUMU5-large-dark.png
 mermaid: true
 draft: false
 hidden: false
