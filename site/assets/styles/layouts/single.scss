@@ -29,6 +29,7 @@ body.kind-page {
             margin-top: 3rem;
             width: 100%;
             height: 400px;
+            background-image: var(--hero-light);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -339,6 +340,10 @@ html[data-theme='dark'] {
         .content {
           .read-area {
             background-color: get-dark-color('bg-primary');
+
+            .hero-area {
+              background-image: var(--hero-dark, var(--hero-light));
+            }
 
             .page-content {
               .author-profile {

@@ -4,7 +4,8 @@
       {{ $postLink := partial "helpers/get-post-link.html" . }}
       {{ $isExternal := .Params.externalLink }}
       <a href="{{ $postLink }}" class="post-card-link"{{ if $isExternal }} target="_blank" rel="noopener"{{ end }}>
-        <img class="card-img-top" src='{{ partial "helpers/get-hero.html" . }}' alt="Hero Image">
+        <img class="card-img-top light-logo" src='{{ partial "helpers/get-hero.html" . }}' alt="Hero Image">
+        <img class="card-img-top dark-logo" src='{{ partial "helpers/get-hero-dark.html" . }}' alt="Hero Image">
       </a>
     </div>
     <div class="card-body">
