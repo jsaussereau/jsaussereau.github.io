@@ -1,5 +1,5 @@
 ---
-title: "Installer Odatix à l'ENSEIRB"
+title: "Installer Odatix à l'ENSEIRB-MATMECA"
 date: "2026-02-17T00:00:00+02:00"
 summary: "Tutoriel d'installation d'Odatix à l'ENSEIRB-MATMECA"
 weight: 3
