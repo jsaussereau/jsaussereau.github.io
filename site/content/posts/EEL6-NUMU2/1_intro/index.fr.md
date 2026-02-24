@@ -19,7 +19,7 @@ draft: false
 hidden: false
 ---
 
-Ce projet vise à concevoir un système embarqué basé sur un microcontrôleur PIC16F877A. L'objectif est d'implémenter horloge une horloge configurable affichée sur un afficheur LCD. Le cahier des charges complet se trouve dans la [section suivante](/fr/posts/eel6-numu2/2_cahier_des_charges/).
+Ce projet vise à concevoir un système embarqué basé sur un microcontrôleur PIC16F877A. L'objectif est d'implémenter une horloge configurable affichée sur un afficheur LCD. Le cahier des charges complet se trouve dans la [section suivante](/fr/posts/eel6-numu2/2_cahier_des_charges/).
 
 ## Compétences
 
