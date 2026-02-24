@@ -22,12 +22,13 @@ hidden: false
 
 ## Modalités de rendu
 
-Le rendu se fait par mail avec comme objet `[EN111] NOM1 NOM2`, avant le 25 mai 23:59.
+Le rendu du code source et du rapport est à faire [sur Moodle](https://moodle.bordeaux-inp.fr/course/view.php?id=3963), **par un seul des membres du binôme**, avant le **24 mai 23:59**.
 
-- Groupes D et E : [nader.ajmi@bordeaux-inp.fr](mailto:nader.ajmi@bordeaux-inp.fr?subject=[EN111]%20NOM1%20NOM2)
-- Groupe F : [valery.lebret@enseirb-matmeca.fr](mailto:Valery.Lebret@enseirb-matmeca.fr?subject=[EN111]%20NOM1%20NOM2)
-- Groupe G : [jsaussereau@bordeaux-inp.fr](mailto:jsaussereau@bordeaux-inp.fr?subject=[EN111]%20NOM1%20NOM2)
+> [!WARNING]
+> Veillez à ce que les deux noms du binôme apparaissent dans le rapport !
 
+> [!IMPORTANT]
+> Merci de bien téléverser vos fichiers dans la rubrique de rendu correspondant à votre groupe de TP !
 
 ## Ressources à rendre
 
@@ -67,6 +68,6 @@ Le rendu se fait par mail avec comme objet `[EN111] NOM1 NOM2`, avant le 25 mai 
 > [!CAUTION]  
 > 1. Le code source doit compiler !
 > 2. La note qui vous sera attribuée sur ce module tient également compte du travail observé durant les séances de TP + projet et des éventuelles absences non justifiées.
-> 3. Le [plagiat](https://nuxeo.ipb.fr/nuxeo/nxfile/default/fa82b9dd-f22c-4d41-8ace-5a5e7fa7e60d/blobholder:0/Charte-anti-plagiat.pdf) constitue une fraude dont les conséquences peuvent être graves :
+> 3. Le [plagiat](https://ent.bordeaux-inp.fr/_plugins/flipbook/intranet/_attachments-flipbook/nouvelle-faq-87/Charte-anti-plagiat.pdf/_contents/ametys-internal%253Asites/intranet/ametys-internal%253Acontents/nouvelle-faq-87/ametys-internal%253Aattachments/Charte-anti-plagiat.pdf/book.html) constitue une fraude dont les conséquences peuvent être graves :
 attribution d’une note de zéro au travail incriminé, exclusion de l’établissement, exclusion définitive de tout établissement d’enseignement supérieur français.  
 En matière de propriété intellectuelle, le plagiat constitue un délit.
