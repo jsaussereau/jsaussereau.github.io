@@ -14,29 +14,6 @@
 //   }
 // }
 
-pre {
-	border-radius: 6px;
-	padding: 10px 15px;
-	background-color: #191f2b !important;
-}
-
-pre code {
-	padding: 0 !important;
-}
-
-.copy-code-button {
-    background-color: #263244 !important;
-}
-
-[data-theme="dark"] .admonition-content {
-    background-color: #191f2b !important;
-}
-
-.top-navbar.transparent-navbar {
-    background-color: #1d1d1d6b !important;
-    backdrop-filter: blur(10px);
-}
-
 #homePageBackgroundImageDivStyled {
     filter: blur(5px);
 }
@@ -44,39 +21,4 @@ pre code {
 /* temporarilly disable clicks on tags */
 .tags a {
     pointer-events: none;
-}
-
-.sidebar-holder,
-.sidebar {
-	height: 100% !important;
-}
-.sidebar-holder.in-post,
-.sidebar.in-post {
-    height: fit-content !important;
-}
-
-.sidebar.in-post {
-    padding-bottom: 20px;
-}
-
-.sidebar-button {
-    padding: 0 !important;
-    margin-top: 10px !important;
-    display: flex;
-    justify-content: center;
-	margin-bottom: 15px !important;
-}
-
-.post-subtree::before {
-    top: 5.75rem !important;
-}
-
-.post-card {
-	margin-bottom: 10px;
-	margin-top: 0px;
-}
-
-.card {
-    margin-bottom: 0 !important;
-    margin-top: 0 !important;
 }

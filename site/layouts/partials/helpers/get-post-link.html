@@ -1,5 +1,0 @@
-{{- $link := .RelPermalink | relLangURL -}}
-{{- with .Params.externalLink -}}
-  {{- $link = . -}}
-{{- end -}}
-{{- return $link -}}
